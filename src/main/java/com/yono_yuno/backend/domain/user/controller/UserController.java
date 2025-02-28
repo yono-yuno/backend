@@ -1,6 +1,8 @@
 package com.yono_yuno.backend.domain.user.controller;
 
+import com.yono_yuno.backend.domain.user.entity.dto.RequestLoginDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.RequestSignUpDTO;
+import com.yono_yuno.backend.domain.user.entity.dto.ResponseLoginDTO;
 import com.yono_yuno.backend.domain.user.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,20 @@ public class UserController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "회원가입 성공!" : "회원가입 실패..");
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, Object>> login(@RequestBody RequestLoginDTO requestLoginDTO) {
+        ResponseLoginDTO responseLoginDTO = userService.login(requestLoginDTO);
+
+        boolean success = requestLoginDTO != null;
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "로그인 성공!" : "로그인 실패..");
+        responseMap.put("userInfo", responseLoginDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }

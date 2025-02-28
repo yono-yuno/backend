@@ -15,4 +15,8 @@ public class GetUserEntityBean {
     public UserEntity exec(String phoneNum) {
         return userRepositoryJPA.findByPhoneNum(phoneNum);
     }
+
+    public UserEntity exec(String phoneNum, String passWord) {
+        return userRepositoryJPA.findByPhoneNumAndPassWord(phoneNum, passWord);
+    }
 }

@@ -9,4 +9,5 @@ import java.util.UUID;
 @Repository
 public interface UserRepositoryJPA extends JpaRepository<UserEntity, UUID> {
     UserEntity findByPhoneNum(String phoneNum);
+    UserEntity findByPhoneNumAndPassWord(String phoneNum, String passWord);
 }
