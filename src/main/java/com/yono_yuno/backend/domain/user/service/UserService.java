@@ -2,6 +2,8 @@ package com.yono_yuno.backend.domain.user.service;
 
 import com.yono_yuno.backend.domain.user.bean.CreateUserBean;
 import com.yono_yuno.backend.domain.user.bean.GetUserBean;
+import com.yono_yuno.backend.domain.user.bean.UpdateUserBean;
+import com.yono_yuno.backend.domain.user.entity.dto.RequestUpdateSettingDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.RequestLoginDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.RequestSignUpDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.ResponseLoginDTO;
@@ -11,17 +13,23 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final CreateUserBean createUserBean;
     private final GetUserBean getUserBean;
+    private final UpdateUserBean updateUserBean;
 
-    public UserService(CreateUserBean createUserBean, GetUserBean getUserBean) {
+    public UserService(CreateUserBean createUserBean, GetUserBean getUserBean, UpdateUserBean updateUserBean) {
         this.createUserBean = createUserBean;
         this.getUserBean = getUserBean;
+        this.updateUserBean = updateUserBean;
     }
 
-    public Boolean signUp(RequestSignUpDTO requestSignUpDTO) {
+    public boolean signUp(RequestSignUpDTO requestSignUpDTO) {
         return createUserBean.exec(requestSignUpDTO);
     }
 
     public ResponseLoginDTO login(RequestLoginDTO requestLoginDTO) {
         return getUserBean.exec(requestLoginDTO);
+    }
+
+    public boolean updateSetting(RequestUpdateSettingDTO requestUpdateSettingDTO) {
+        return updateUserBean.exec(requestUpdateSettingDTO);
     }
 }

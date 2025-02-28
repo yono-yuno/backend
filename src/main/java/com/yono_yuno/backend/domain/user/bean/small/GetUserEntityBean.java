@@ -4,6 +4,8 @@ import com.yono_yuno.backend.domain.user.entity.UserEntity;
 import com.yono_yuno.backend.domain.user.repository.UserRepositoryJPA;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class GetUserEntityBean {
     private final UserRepositoryJPA userRepositoryJPA;
@@ -18,5 +20,9 @@ public class GetUserEntityBean {
 
     public UserEntity exec(String phoneNum, String passWord) {
         return userRepositoryJPA.findByPhoneNumAndPassWord(phoneNum, passWord);
+    }
+
+    public UserEntity exec(UUID userId) {
+        return  userRepositoryJPA.findById(userId).orElse(null);
     }
 }

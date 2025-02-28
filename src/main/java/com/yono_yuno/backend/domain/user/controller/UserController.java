@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.user.controller;
 
+import com.yono_yuno.backend.domain.user.entity.dto.RequestUpdateSettingDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.RequestLoginDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.RequestSignUpDTO;
 import com.yono_yuno.backend.domain.user.entity.dto.ResponseLoginDTO;
@@ -44,6 +45,17 @@ public class UserController {
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "로그인 성공!" : "로그인 실패..");
         responseMap.put("userInfo", responseLoginDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
+
+    @PutMapping("")
+    public ResponseEntity<Map<String, Object>> updateSetting(@RequestBody RequestUpdateSettingDTO requestUpdateSettingDTO) {
+        boolean success = userService.updateSetting(requestUpdateSettingDTO);
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "설정 변경 완료!" : "설정 변경 실패..");
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
