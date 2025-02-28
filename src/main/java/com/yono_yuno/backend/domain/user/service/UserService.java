@@ -3,11 +3,10 @@ package com.yono_yuno.backend.domain.user.service;
 import com.yono_yuno.backend.domain.user.bean.CreateUserBean;
 import com.yono_yuno.backend.domain.user.bean.GetUserBean;
 import com.yono_yuno.backend.domain.user.bean.UpdateUserBean;
-import com.yono_yuno.backend.domain.user.entity.dto.RequestUpdateSettingDTO;
-import com.yono_yuno.backend.domain.user.entity.dto.RequestLoginDTO;
-import com.yono_yuno.backend.domain.user.entity.dto.RequestSignUpDTO;
-import com.yono_yuno.backend.domain.user.entity.dto.ResponseLoginDTO;
+import com.yono_yuno.backend.domain.user.entity.dto.*;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -31,5 +30,9 @@ public class UserService {
 
     public boolean updateSetting(RequestUpdateSettingDTO requestUpdateSettingDTO) {
         return updateUserBean.exec(requestUpdateSettingDTO);
+    }
+
+    public ResponseGetUserDTO getUser(UUID userId) {
+        return getUserBean.exec(userId);
     }
 }
