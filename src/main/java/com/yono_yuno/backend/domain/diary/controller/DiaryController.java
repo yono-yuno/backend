@@ -1,6 +1,7 @@
 package com.yono_yuno.backend.domain.diary.controller;
 
 import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseSaveDiaryDTO;
 import com.yono_yuno.backend.domain.diary.service.DiaryService;
@@ -55,4 +56,16 @@ public class DiaryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
 
+    @Operation(summary = "일기 업데이트", description = "일기를 업데이트 합니다.")
+    @PostMapping("/updatediary")
+
+    public ResponseEntity<Map<String,Object>> updateDiary(@RequestBody RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
+        boolean success = diaryService.update(requestUpdateDiaryDTO);
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "일기 변경 완료!" : "일기 변경 실패..");
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
 }
