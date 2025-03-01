@@ -1,7 +1,7 @@
 package com.yono_yuno.backend.domain.diary.bean.small;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDto;
+import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -9,7 +9,7 @@ import java.util.UUID;
 @Component
 
 public class CreateDiaryEntityBean {
-    public DiaryEntity exec(RequestSaveDiaryDto requestSaveDiaryDto) {
+    public DiaryEntity exec(RequestSaveDiaryDTO requestSaveDiaryDto) {
         return DiaryEntity.builder()
                 .diaryId(UUID.randomUUID())
                 .firstReview(requestSaveDiaryDto.getFirstReview())

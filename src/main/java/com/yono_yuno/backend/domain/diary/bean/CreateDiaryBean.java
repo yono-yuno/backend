@@ -4,8 +4,8 @@ import com.yono_yuno.backend.domain.diary.bean.small.CreateDiaryDtoBean;
 import com.yono_yuno.backend.domain.diary.bean.small.CreateDiaryEntityBean;
 import com.yono_yuno.backend.domain.diary.bean.small.SaveDairyEntityBean;
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDto;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseSaveDiaryDto;
+import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.ResponseSaveDiaryDTO;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,7 +20,7 @@ public class CreateDiaryBean {
         this.saveDairyEntitybean = saveDairyEntitybean;
     }
 
-    public ResponseSaveDiaryDto exec(RequestSaveDiaryDto requestSaveDiaryDto) {
+    public ResponseSaveDiaryDTO exec(RequestSaveDiaryDTO requestSaveDiaryDto) {
 //        userid와 itemid 있는지 확인 추가 예정
         DiaryEntity diaryEntity = createDiaryEntityBean.exec(requestSaveDiaryDto);
         saveDairyEntitybean.exec(diaryEntity);

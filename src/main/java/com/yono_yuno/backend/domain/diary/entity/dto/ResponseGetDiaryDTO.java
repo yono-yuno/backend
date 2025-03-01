@@ -1,22 +1,18 @@
 package com.yono_yuno.backend.domain.diary.entity.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class ResponseSaveDiaryDTO {
+// item 완성하면 GetItemInfo 불러오기 해야함
+public class ResponseGetDiaryDTO {
     UUID diaryId;
-    UUID itemId;
     UUID userId;
+    double consumerStars;
     String firstReview;
-
-
-
+    String detailDiary;
+    GetItemInfo itemInfo;
 }
