@@ -10,7 +10,6 @@ import java.util.UUID;
 public class RequestUpdateDiaryDTO {
     UUID dairyId;
     double consumerStars;
-    String firstReview;
     String detailDiary;
 
 }

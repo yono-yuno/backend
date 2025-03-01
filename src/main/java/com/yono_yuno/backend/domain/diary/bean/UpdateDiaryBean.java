@@ -31,7 +31,7 @@ public class UpdateDiaryBean {
             throw new CustomException(ErrorCode.DIARY_NOT_FOUNT);
         }
 
-        DiaryEntity updateDiary = updateDiaryEntityBean.exec(diary, requestUpdateDiaryDTO.getConsumerStars(), requestUpdateDiaryDTO.getFirstReview(), requestUpdateDiaryDTO.getDetailDiary());
+        DiaryEntity updateDiary = updateDiaryEntityBean.exec(diary, requestUpdateDiaryDTO.getConsumerStars(), requestUpdateDiaryDTO.getDetailDiary());
 
         if(updateDiary == null){
             return false;

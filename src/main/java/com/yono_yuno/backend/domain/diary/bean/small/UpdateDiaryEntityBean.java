@@ -5,9 +5,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UpdateDiaryEntityBean {
-    public DiaryEntity exec(DiaryEntity diary, double consumerStars, String firstReview, String detailDiary){
+    public DiaryEntity exec(DiaryEntity diary, double consumerStars, String detailDiary){
         diary.setConsumerStars(consumerStars);
-        diary.setFirstReview(firstReview);
         diary.setDetailDiary(detailDiary);
 
         return diary;
