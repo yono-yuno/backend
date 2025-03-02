@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.diary.controller;
 
+import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -68,4 +70,19 @@ public class DiaryController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
+    @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회합니다.")
+    @PostMapping("/getAlldiary")
+
+    public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId")UUID userId){
+       List<DiaryEntity> responseDiaryList= diaryService.getAllDiary(userId);
+
+       boolean success = !responseDiaryList.isEmpty();
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("success", success);
+        responseMap.put("message", success ? "모든 일기 조회 성공" : "모든 일기 조회 실패");
+        responseMap.put("accountInfo", responseDiaryList);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
+
 }
