@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.item.controller;
 
+import com.yono_yuno.backend.domain.item.entity.dto.ResponseGetItemAllDTO;
 import com.yono_yuno.backend.domain.item.entity.dto.ResponseGetItemDTO;
 import com.yono_yuno.backend.domain.item.service.ItemService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -35,6 +37,24 @@ public class ItemController {
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "상품 조회 성공!" : "상품 조회 실패..");
         responseMap.put("itemDetail", responseGetItemDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
+
+    @Operation(summary = "상품 전체 조회", description = "category별 전체 상품의 정보를 조회합니다.")
+    @GetMapping("/{category}")
+    public ResponseEntity<Map<String, Object>> getItemAll(@PathVariable("category") String category) {
+
+        List<ResponseGetItemAllDTO> items = itemService.getItemsByCategory(category);
+
+
+
+        boolean success = items != null;
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "상품 리스트 조회 성공!" : "상품 리스트 조회 실패..");
+        responseMap.put("itemList", items);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }

@@ -4,6 +4,7 @@ import com.yono_yuno.backend.domain.item.entity.ItemEntity;
 import com.yono_yuno.backend.domain.item.repository.ItemRepositoryJPA;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -16,5 +17,8 @@ public class GetItemEntityBean {
 
     public ItemEntity exec(UUID itemId) {
         return  itemRepositoryJPA.findById(itemId).orElse(null);
+    }
+
+    public List<ItemEntity> exec(String category) { return  itemRepositoryJPA.findByCategory(category).orElse(null);
     }
 }
