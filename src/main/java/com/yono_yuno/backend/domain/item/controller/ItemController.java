@@ -23,36 +23,18 @@ public class ItemController {
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
-//
-//    @Operation(summary = "상품 조회", description = "categoryName으로 해당 상품들의 정보를 조회합니다.")
-//    @GetMapping("/{category}")
-//    //@ResponseBody
-//    public ResponseEntity<Map<String, Object>> getItemAll(@RequestParam("categoryName") String categoryName) {
-//        ResponseGetItemDTO responseGetItemDTO = itemService.getItemAll(categoryName);
-//
-//        boolean success = responseGetItemDTO != null;
-//
-//        Map<String, Object> responseMap = new HashMap<>();
-//        responseMap.put("isSuccess", success);
-//        responseMap.put("message", success ? "상품 조회 성공!" : "상품 조회 실패..");
-//        responseMap.put("userInfo", responseGetItemDTO);
-//
-//        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
-//    }
 
     @Operation(summary = "상품 디테일 조회", description = "itemID로 해당 상품의 정보를 조회합니다.")
     @GetMapping()
-    //@ResponseBody
     public ResponseEntity<Map<String, Object>> getItem(@RequestParam("itemId") UUID itemId) {
         ResponseGetItemDTO responseGetItemDTO = itemService.getItem(itemId);
 
         boolean success = responseGetItemDTO != null;
 
-        //success = true;
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "상품 조회 성공!" : "상품 조회 실패..");
-        responseMap.put("userInfo", responseGetItemDTO);
+        responseMap.put("itemDetail", responseGetItemDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
