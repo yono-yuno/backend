@@ -1,11 +1,12 @@
 package com.yono_yuno.backend.domain.item.entity.dto;
 
 import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-//@Data
+@Data
 @Builder
 public class ResponseGetItemDTO {
     UUID itemId;
