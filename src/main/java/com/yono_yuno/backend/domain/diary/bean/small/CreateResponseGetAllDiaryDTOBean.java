@@ -16,5 +16,4 @@ public class CreateResponseGetAllDiaryDTOBean {
                 .itemInfo(GetItemInfo.builder().build())
                 .build();
     }
-
 }

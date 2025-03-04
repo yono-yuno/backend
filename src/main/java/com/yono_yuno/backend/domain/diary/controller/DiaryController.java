@@ -67,7 +67,7 @@ public class DiaryController {
     }
 
     @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회 합니다.")
-    @GetMapping("/diary/all")
+    @GetMapping("/all")
     public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId")UUID userId){
        List<ResponseGetAllDiaryDTO> responseDiaryList = diaryService.getAllDiary(userId);
 

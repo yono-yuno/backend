@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 public interface DiaryRepositoryJPA extends JpaRepository<DiaryEntity, UUID> {
-    List<DiaryEntity> findByUserId(UUID userId);
+    DiaryEntity findByUserId(UUID userId);
+    List<DiaryEntity> findByAllUserId(UUID userId);
 }
