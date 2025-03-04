@@ -28,7 +28,7 @@ public class DiaryController {
     public DiaryController(DiaryService diaryService) { this.diaryService = diaryService;}
 
     @Operation(summary = "일기 작성", description = "소비일기를 작성합니다.")
-    @PostMapping("/write")
+    @PostMapping()
     public ResponseEntity<Map<String, Object>> write(@RequestBody RequestCreateDiaryDTO requestCreateDiaryDto) {
         ResponseCreateDiaryDTO responseCreateDiaryDto = diaryService.write(requestCreateDiaryDto);
 
@@ -41,7 +41,7 @@ public class DiaryController {
     }
 
     @Operation(summary = "일기 조회", description = "소비일기를 조회합니다.")
-    @PostMapping("diary")
+    @GetMapping
     public ResponseEntity<Map<String,Object>> getDiary(@RequestParam("diaryId")UUID diaryId){
         ResponseGetDiaryDTO responseGetDiaryDTO = diaryService.getDiary(diaryId);
 
@@ -55,7 +55,7 @@ public class DiaryController {
     }
 
     @Operation(summary = "일기 업데이트", description = "일기를 업데이트 합니다.")
-    @PostMapping("/diary")
+    @PutMapping()
     public ResponseEntity<Map<String,Object>> updateDiary(@RequestBody RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
         boolean success = diaryService.update(requestUpdateDiaryDTO);
 
@@ -67,9 +67,9 @@ public class DiaryController {
     }
 
     @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회 합니다.")
-    @PostMapping("/diary/all")
+    @GetMapping("/diary/all")
     public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId")UUID userId){
-       ResponseGetAllDiaryDTO responseDiaryList = diaryService.getAllDiary(userId);
+       List<ResponseGetAllDiaryDTO> responseDiaryList = diaryService.getAllDiary(userId);
 
        boolean success = !responseDiaryList.isEmpty();
         Map<String, Object> responseMap = new HashMap<>();

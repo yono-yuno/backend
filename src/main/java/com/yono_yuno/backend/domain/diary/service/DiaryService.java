@@ -37,7 +37,7 @@ public class DiaryService {
         return updateDiaryBean.exec(requestUpdateDiaryDTO);
     }
 
-    public ResponseGetAllDiaryDTO getAllDiary(UUID userId){
-        return List<getAllDiaryBean>.exec(userId);
+    public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId){
+        return getAllDiaryBean.exec(userId);
     }
 }

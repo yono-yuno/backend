@@ -12,6 +12,7 @@ public class CreateResponseGetAllDiaryDTOBean {
     public ResponseGetAllDiaryDTO exec(DiaryEntity diary){
         return ResponseGetAllDiaryDTO.builder()
                 .diaryId(diary.getDiaryId())
+                .createAt(diary.getCreatedAt())
                 .itemInfo(GetItemInfo.builder().build())
                 .build();
     }
