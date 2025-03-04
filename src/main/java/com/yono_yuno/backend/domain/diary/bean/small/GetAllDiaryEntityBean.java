@@ -16,6 +16,6 @@ public class GetAllDiaryEntityBean {
     }
 //cart 완성시 결제 상태가 3(BUY)상태인것만 출력해야함
     public List<DiaryEntity> exec(UUID userId) {
-        return diaryRepositoryJpa.findByAllUserId(userId);
+        return diaryRepositoryJpa.findAllByUserId(userId);
     }
 }

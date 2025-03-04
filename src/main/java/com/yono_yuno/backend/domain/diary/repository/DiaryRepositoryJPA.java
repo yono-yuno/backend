@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.UUID;
 public interface DiaryRepositoryJPA extends JpaRepository<DiaryEntity, UUID> {
     DiaryEntity findByUserId(UUID userId);
-    List<DiaryEntity> findByAllUserId(UUID userId);
+    List<DiaryEntity> findAllByUserId(UUID userId);
 }
