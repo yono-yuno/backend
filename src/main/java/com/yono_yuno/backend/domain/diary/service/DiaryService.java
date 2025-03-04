@@ -5,10 +5,10 @@ import com.yono_yuno.backend.domain.diary.bean.GetAllDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.UpdateDiaryBean;
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.RequestCreateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.ResponseCreateDiaryDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,8 +28,8 @@ public class DiaryService {
         this.updateDiaryBean = updateDiaryBean;
     }
 
-    public ResponseSaveDiaryDTO write(RequestSaveDiaryDTO requestSaveDiaryDto){
-        return createDiaryBean.exec(requestSaveDiaryDto);
+    public ResponseCreateDiaryDTO write(RequestCreateDiaryDTO requestCreateDiaryDto){
+        return createDiaryBean.exec(requestCreateDiaryDto);
     }
     public ResponseGetDiaryDTO getDiary(UUID diaryId){
         return getDiaryBean.exec(diaryId);

@@ -11,8 +11,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RequestSaveDiaryDTO {
-    UUID userId;
+public class ResponseCreateDiaryDTO {
+    UUID diaryId;
     UUID itemId;
+    UUID userId;
     String firstReview;
 }

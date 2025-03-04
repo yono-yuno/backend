@@ -1,10 +1,10 @@
 package com.yono_yuno.backend.domain.diary.controller;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.RequestCreateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseSaveDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.ResponseCreateDiaryDTO;
 import com.yono_yuno.backend.domain.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -33,10 +33,10 @@ public class DiaryController {
     @Operation(summary = "일기 작성", description = "소비일기를 작성합니다.")
     @PostMapping("/write")
 
-    public ResponseEntity<Map<String, Object>> write(@RequestBody RequestSaveDiaryDTO requestSaveDiaryDto) {
-        ResponseSaveDiaryDTO responseSaveDiaryDto = diaryService.write(requestSaveDiaryDto);
+    public ResponseEntity<Map<String, Object>> write(@RequestBody RequestCreateDiaryDTO requestCreateDiaryDto) {
+        ResponseCreateDiaryDTO responseCreateDiaryDto = diaryService.write(requestCreateDiaryDto);
 
-        boolean success = responseSaveDiaryDto != null;
+        boolean success = responseCreateDiaryDto != null;
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("success", success);
         responseMap.put("message", success ? "소비 일기 작성 성공" : "소비 일기 작성 실패");
