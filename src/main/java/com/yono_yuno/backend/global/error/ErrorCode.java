@@ -13,7 +13,6 @@ public enum ErrorCode {
     ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, false, "ACCOUNT-001", "계좌를 찾을 수 없습니다."),
     ITEM_NOT_FOUND(HttpStatus.NOT_FOUND, false, "ITEM-001", "상품을 찾을 수 없습니다.");
 
-
     private final HttpStatus httpStatus;
     private final boolean isSuccess;
     private final String code;
