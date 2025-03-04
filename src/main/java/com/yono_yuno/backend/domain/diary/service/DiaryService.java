@@ -5,10 +5,7 @@ import com.yono_yuno.backend.domain.diary.bean.GetAllDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.UpdateDiaryBean;
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestCreateDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseCreateDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,13 +28,16 @@ public class DiaryService {
     public ResponseCreateDiaryDTO write(RequestCreateDiaryDTO requestCreateDiaryDto){
         return createDiaryBean.exec(requestCreateDiaryDto);
     }
+
     public ResponseGetDiaryDTO getDiary(UUID diaryId){
         return getDiaryBean.exec(diaryId);
     }
+
     public boolean update(RequestUpdateDiaryDTO requestUpdateDiaryDTO){
         return updateDiaryBean.exec(requestUpdateDiaryDTO);
     }
-    public List<DiaryEntity> getAllDiary(UUID userId){
-        return getAllDiaryBean.exec();
+
+    public ResponseGetAllDiaryDTO getAllDiary(UUID userId){
+        return List<getAllDiaryBean>.exec(userId);
     }
 }

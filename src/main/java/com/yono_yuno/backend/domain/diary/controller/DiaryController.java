@@ -1,10 +1,7 @@
 package com.yono_yuno.backend.domain.diary.controller;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestCreateDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.RequestUpdateDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetDiaryDTO;
-import com.yono_yuno.backend.domain.diary.entity.dto.ResponseCreateDiaryDTO;
+import com.yono_yuno.backend.domain.diary.entity.dto.*;
 import com.yono_yuno.backend.domain.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -32,7 +29,6 @@ public class DiaryController {
 
     @Operation(summary = "일기 작성", description = "소비일기를 작성합니다.")
     @PostMapping("/write")
-
     public ResponseEntity<Map<String, Object>> write(@RequestBody RequestCreateDiaryDTO requestCreateDiaryDto) {
         ResponseCreateDiaryDTO responseCreateDiaryDto = diaryService.write(requestCreateDiaryDto);
 
@@ -43,9 +39,9 @@ public class DiaryController {
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
-    @Operation(summary = "일기 조회", description = "소비일기를 조회합니다.")
-    @PostMapping("/getdiary")
 
+    @Operation(summary = "일기 조회", description = "소비일기를 조회합니다.")
+    @PostMapping("diary")
     public ResponseEntity<Map<String,Object>> getDiary(@RequestParam("diaryId")UUID diaryId){
         ResponseGetDiaryDTO responseGetDiaryDTO = diaryService.getDiary(diaryId);
 
@@ -53,14 +49,13 @@ public class DiaryController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "일기 조회 성공!" : "일기 조회 실패..");
-        responseMap.put("userInfo", responseGetDiaryDTO);
+        responseMap.put("DiaryInfo", responseGetDiaryDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
 
     @Operation(summary = "일기 업데이트", description = "일기를 업데이트 합니다.")
-    @PostMapping("/updatediary")
-
+    @PostMapping("/diary")
     public ResponseEntity<Map<String,Object>> updateDiary(@RequestBody RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
         boolean success = diaryService.update(requestUpdateDiaryDTO);
 
@@ -70,17 +65,17 @@ public class DiaryController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
-    @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회합니다.")
-    @PostMapping("/getAlldiary")
 
+    @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회 합니다.")
+    @PostMapping("/diary/all")
     public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId")UUID userId){
-       List<DiaryEntity> responseDiaryList= diaryService.getAllDiary(userId);
+       ResponseGetAllDiaryDTO responseDiaryList = diaryService.getAllDiary(userId);
 
        boolean success = !responseDiaryList.isEmpty();
         Map<String, Object> responseMap = new HashMap<>();
-        responseMap.put("success", success);
-        responseMap.put("message", success ? "모든 일기 조회 성공" : "모든 일기 조회 실패");
-        responseMap.put("accountInfo", responseDiaryList);
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "일기 리스트 조회 성공" : "일기 리스트 조회 실패");
+        responseMap.put("diaryList", responseDiaryList);//수정
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }

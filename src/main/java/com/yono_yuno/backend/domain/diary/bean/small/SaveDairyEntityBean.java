@@ -1,15 +1,15 @@
 package com.yono_yuno.backend.domain.diary.bean.small;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.diary.repository.DiaryRepositoryJpa;
+import com.yono_yuno.backend.domain.diary.repository.DiaryRepositoryJPA;
 import org.springframework.stereotype.Component;
 
 @Component
 
 public class SaveDairyEntityBean {
-    private final DiaryRepositoryJpa diaryRepositoryJpa;
+    private final DiaryRepositoryJPA diaryRepositoryJpa;
 
-    public SaveDairyEntityBean(DiaryRepositoryJpa diaryRepositoryJpa) {
+    public SaveDairyEntityBean(DiaryRepositoryJPA diaryRepositoryJpa) {
         this.diaryRepositoryJpa = diaryRepositoryJpa;
     }
 

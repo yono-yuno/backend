@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CreateDiaryDtoBean {
-    //item완료 시 itemEntity로 itemId 추가 해야함
     public ResponseCreateDiaryDTO exec(DiaryEntity diaryEntity){
         return ResponseCreateDiaryDTO.builder()
                 .diaryId(diaryEntity.getDiaryId())
