@@ -39,4 +39,17 @@ public class CartController {
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
+    @Operation(summary = "생각중인 상품 단일 조회", description = "상품을 조회합니다.")
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getCart(@RequestParam("cartId") UUID cartId) {
+        ResponseGetCartDTO responseGetCartDTO = cartService.getCart(cartId);
+
+        boolean success = responseGetCartDTO != null;
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("success", success);
+        responseMap.put("message", success ? "카트 단일 조회 성공" : "카트 단일 조회 실패");
+        responseMap.put("cartInfo", responseGetCartDTO);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
 }
