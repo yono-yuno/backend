@@ -2,15 +2,18 @@ package com.yono_yuno.backend.domain.cart.controller;
 
 import com.yono_yuno.backend.domain.cart.entity.dto.RequestCreateCartDTO;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseCreateCartDTO;
+import com.yono_yuno.backend.domain.cart.entity.dto.ResponseGetCartDTO;
 import com.yono_yuno.backend.domain.cart.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @Tag(name = "생각 중인 소비 API ", description = "생각중인 소비 관련 API")
@@ -25,7 +28,7 @@ public class CartController {
     }
 
     @Operation(summary = "카트 인", description = "카트에 상품을 넣습니다.")
-    @PostMapping("/cartin")
+    @PostMapping()
     public ResponseEntity<Map<String, Object>> write(@RequestBody RequestCreateCartDTO requestCreateCartDTO) {
         ResponseCreateCartDTO responseCreateCartDTO = cartService.cartIn(requestCreateCartDTO);
 

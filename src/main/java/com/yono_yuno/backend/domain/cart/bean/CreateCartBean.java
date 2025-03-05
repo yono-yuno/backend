@@ -6,6 +6,8 @@ import com.yono_yuno.backend.domain.cart.bean.small.SaveCartEntityBean;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
 import com.yono_yuno.backend.domain.cart.entity.dto.RequestCreateCartDTO;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseCreateCartDTO;
+import com.yono_yuno.backend.global.error.CustomException;
+import com.yono_yuno.backend.global.error.ErrorCode;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +29,11 @@ public class CreateCartBean {
 
     public ResponseCreateCartDTO exec(RequestCreateCartDTO requestCreateCartDTO){
         CartEntity cartEntity= createCartEntityBean.exec(requestCreateCartDTO);
+
+        if (cartEntity == null){
+            throw new CustomException(ErrorCode.CART_NOT_IN);
+        }
+
         saveCartEntityBean.exec(cartEntity);
         return createCartDtoBean.exec(cartEntity);
     }
