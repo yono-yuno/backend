@@ -18,6 +18,6 @@ public class CartEntity extends BaseEntity {
     @Id
     UUID cartId;
     UUID itemId;
-    int askCount; //1,2,3,4만 가능 합니다.
+    int askCount;
     UUID userId;
 }

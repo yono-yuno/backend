@@ -5,7 +5,7 @@ import com.yono_yuno.backend.domain.cart.entity.dto.ResponseCreateCartDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateCartDtoBean {
+public class CreateCartDTOBean {
     public ResponseCreateCartDTO exec(CartEntity cartEntity){
         return ResponseCreateCartDTO.builder()
                 .cartId(cartEntity.getCartId())

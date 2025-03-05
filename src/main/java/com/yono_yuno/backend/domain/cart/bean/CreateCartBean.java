@@ -1,6 +1,6 @@
 package com.yono_yuno.backend.domain.cart.bean;
 
-import com.yono_yuno.backend.domain.cart.bean.small.CreateCartDtoBean;
+import com.yono_yuno.backend.domain.cart.bean.small.CreateCartDTOBean;
 import com.yono_yuno.backend.domain.cart.bean.small.CreateCartEntityBean;
 import com.yono_yuno.backend.domain.cart.bean.small.SaveCartEntityBean;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
@@ -16,10 +16,10 @@ public class CreateCartBean {
     //카트 정보 보내기
     private final CreateCartEntityBean createCartEntityBean;
     private final SaveCartEntityBean saveCartEntityBean;
-    private final CreateCartDtoBean createCartDtoBean;
+    private final CreateCartDTOBean createCartDtoBean;
 
 
-    public CreateCartBean(CreateCartEntityBean createCartEntityBean,SaveCartEntityBean saveCartEntityBean, CreateCartDtoBean createCartDtoBean){
+    public CreateCartBean(CreateCartEntityBean createCartEntityBean,SaveCartEntityBean saveCartEntityBean, CreateCartDTOBean createCartDtoBean){
         this.createCartEntityBean=createCartEntityBean;
         this.saveCartEntityBean=saveCartEntityBean;
         this.createCartDtoBean = createCartDtoBean;

@@ -10,13 +10,11 @@ import java.util.UUID;
 @Component
 public class CreateCartEntityBean {
     public CartEntity exec(RequestCreateCartDTO requestCreateCartDTO){
-        int askCountNum= AskCount.fromValue(requestCreateCartDTO.getAskCount()).getValue();
-
         return CartEntity.builder()
                 .cartId(UUID.randomUUID())
                 .userId(requestCreateCartDTO.getUserId())
                 .itemId(requestCreateCartDTO.getItemId())
-                .askCount(askCountNum)
+                .askCount(AskCount.FIRST_THINK.ordinal())
                 .build();
     }
 }
