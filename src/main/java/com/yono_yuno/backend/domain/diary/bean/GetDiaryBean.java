@@ -26,7 +26,7 @@ public class GetDiaryBean {
         DiaryEntity diary= getDiaryEntityBean.exec(diaryId);
 
         if (diary ==null){
-            throw new CustomException(ErrorCode.DIARY_NOT_FOUNT);
+            throw new CustomException(ErrorCode.DIARY_NOT_FOUND);
 
         }
         return createResponseGetDiaryDTOBean.exec(diary);
