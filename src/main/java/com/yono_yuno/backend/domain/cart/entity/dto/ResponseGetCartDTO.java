@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class ResponseGetCartDTO {
-    GetitemInfo itemInfo;
+    GetItemInfo itemInfo;
     AskCount askCount;
 }

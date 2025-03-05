@@ -10,7 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GetitemInfo {
+public class GetItemInfo {
     UUID itemId;
     String itemName;
     int price;

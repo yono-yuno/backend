@@ -1,9 +1,6 @@
 package com.yono_yuno.backend.domain.cart.controller;
 
-import com.yono_yuno.backend.domain.cart.entity.dto.RequestCreateCartDTO;
-import com.yono_yuno.backend.domain.cart.entity.dto.RequestUpdateCartDTO;
-import com.yono_yuno.backend.domain.cart.entity.dto.ResponseCreateCartDTO;
-import com.yono_yuno.backend.domain.cart.entity.dto.ResponseGetCartDTO;
+import com.yono_yuno.backend.domain.cart.entity.dto.*;
 import com.yono_yuno.backend.domain.cart.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -60,6 +58,19 @@ public class CartController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("success", success);
         responseMap.put("message", success ? "카트 업데이트 성공" : "카트 업데이트  실패");
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
+    @Operation(summary = "생각중인 상품 리스트 조회", description = "생각중인 상품 리스트를 조회합니다.")
+    @GetMapping("/all")
+    public ResponseEntity<Map<String, Object>> getAllCart(@RequestParam("userID") UUID userId) {
+        List<ResponseGetAllCartDTO> GetAllCartDTO = cartService.getAllCart(userId);
+
+        boolean success = !GetAllCartDTO.isEmpty();
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("success", success);
+        responseMap.put("message", success ? "카트 리스트 조회 성공" : "카트 리스트 조회 실패");
+        responseMap.put("cartInfo", GetAllCartDTO);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }

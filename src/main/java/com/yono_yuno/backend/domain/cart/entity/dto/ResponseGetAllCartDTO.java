@@ -1,7 +1,7 @@
 package com.yono_yuno.backend.domain.cart.entity.dto;
 
 import com.yono_yuno.backend.domain.cart.entity.AskCount;
-import com.yono_yuno.backend.domain.diary.entity.dto.GetItemInfo;
+import com.yono_yuno.backend.domain.cart.entity.dto.GetItemInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +19,8 @@ public class ResponseGetAllCartDTO {
     UUID cartId;
     UUID userId;
     AskCount askCount;
+    LocalDateTime createdAt;
     String extraTime;
-    LocalDateTime createTime;
     GetItemInfo itemInfo;
+
 }

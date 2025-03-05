@@ -11,7 +11,7 @@ public class CreateCartDTOBean {
                 .cartId(cartEntity.getCartId())
                 .userId(cartEntity.getUserId())
                 .itemId(cartEntity.getItemId())
-                .createAt(cartEntity.getCreatedAt())
+                .createdAt(cartEntity.getCreatedAt())
                 .askCount(cartEntity.getAskCount())
                 .build();
     }

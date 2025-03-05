@@ -17,6 +17,6 @@ public class ResponseCreateCartDTO {
     UUID cartId;
     UUID userId;
     UUID itemId;
-    LocalDateTime createAt;
+    LocalDateTime createdAt;
     AskCount askCount;
 }
