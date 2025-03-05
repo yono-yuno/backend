@@ -1,9 +1,11 @@
-package com.yono_yuno.backend.domain.diary.entity;
+package com.yono_yuno.backend.domain.cart.entity;
+
 import com.yono_yuno.backend.global.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -12,12 +14,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DiaryEntity extends BaseEntity {
+public class CartEntity extends BaseEntity {
     @Id
-    UUID diaryId;
-    UUID userId;
-    double consumerStars;
+    UUID cartId;
     UUID itemId;
-    String firstReview;
-    String detailDiary;
+    int askCount; //1,2,3,4만 가능 합니다.
+    UUID userId;
 }

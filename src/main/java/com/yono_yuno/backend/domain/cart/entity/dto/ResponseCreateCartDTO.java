@@ -1,5 +1,6 @@
-package com.yono_yuno.backend.domain.diary.entity.dto;
+package com.yono_yuno.backend.domain.cart.entity.dto;
 
+import com.yono_yuno.backend.domain.cart.entity.AskCount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +13,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseGetAllDiaryDTO {
-    UUID diaryId;
+public class ResponseCreateCartDTO {
+    UUID cartId;
+    UUID userId;
+    UUID itemId;
     LocalDateTime createAt;
-    GetItemInfo itemInfo;
+    int askCount;
 }
