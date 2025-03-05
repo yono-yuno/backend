@@ -15,5 +15,5 @@ import java.util.UUID;
 public class RequestCreateCartDTO {
     UUID userId;
     UUID itemId;
-    int askCount;
+    AskCount askCount;
 }

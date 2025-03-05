@@ -14,7 +14,7 @@ public class CreateCartEntityBean {
                 .cartId(UUID.randomUUID())
                 .userId(requestCreateCartDTO.getUserId())
                 .itemId(requestCreateCartDTO.getItemId())
-                .askCount(AskCount.FIRST_THINK.ordinal())
+                .askCount(AskCount.FIRST_THINK)
                 .build();
     }
 }
