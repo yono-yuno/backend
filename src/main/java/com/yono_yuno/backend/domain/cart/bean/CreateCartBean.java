@@ -28,16 +28,17 @@ public class CreateCartBean {
     }
 
     public ResponseCreateCartDTO exec(RequestCreateCartDTO requestCreateCartDTO){
+        if (requestCreateCartDTO.getUserId() == null) {
+            throw new CustomException(ErrorCode.USER_NOT_FOUND);
+        }
+        if (requestCreateCartDTO.getItemId() == null) {
+            throw new CustomException(ErrorCode.ITEM_NOT_FOUND);
+        }
+
         CartEntity cartEntity= createCartEntityBean.exec(requestCreateCartDTO);
 
         if (cartEntity == null){
             throw new CustomException(ErrorCode.CART_NOT_IN);
-        }
-        if (requestCreateCartDTO.getUserId() == null) {
-            throw new CustomException(ErrorCode.USERID_NOT_FOUND);
-        }
-        if (requestCreateCartDTO.getItemId() == null) {
-            throw new CustomException(ErrorCode.ITEMID_NOT_FOUND);
         }
 
         saveCartEntityBean.exec(cartEntity);

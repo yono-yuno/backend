@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     CART_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-001", "카트(단일)을 찾을 수 없습니다."),
     CART_NOT_IN(HttpStatus.NOT_FOUND, false, "CART-002", "상품을 카트에 넣을 수 없습니다."),
-    USERID_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-003", "사용자정보를 받아올 수 없습니다."),
-    ITEMID_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-004", "상품정보를 받아올 수 없습니다."),
     DIARY_NOT_FOUND(HttpStatus.NOT_FOUND, false, "DIARY-001", "소비 일기를 찾을 수 없습니다."),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, false, "USER-001", "사용자를 찾을 수 없습니다."),
     USER_IS_EXIST(HttpStatus.BAD_REQUEST, false, "USER-002", "이미 유저가 존재합니다."),
