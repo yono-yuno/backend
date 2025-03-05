@@ -1,6 +1,7 @@
 package com.yono_yuno.backend.domain.cart.controller;
 
 import com.yono_yuno.backend.domain.cart.entity.dto.RequestCreateCartDTO;
+import com.yono_yuno.backend.domain.cart.entity.dto.RequestUpdateCartDTO;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseCreateCartDTO;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseGetCartDTO;
 import com.yono_yuno.backend.domain.cart.service.CartService;
@@ -19,7 +20,6 @@ import java.util.UUID;
 @Tag(name = "생각 중인 소비 API ", description = "생각중인 소비 관련 API")
 @CrossOrigin("*")
 @RequestMapping("/api/cart")
-
 public class CartController {
     private final CartService cartService;
 
@@ -49,6 +49,17 @@ public class CartController {
         responseMap.put("success", success);
         responseMap.put("message", success ? "카트 단일 조회 성공" : "카트 단일 조회 실패");
         responseMap.put("cartInfo", responseGetCartDTO);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
+    @Operation(summary = "생각중인 소비 업데이트", description = "생각중인 소비 아이템을 업데이트합니다.")
+    @PutMapping()
+    public ResponseEntity<Map<String, Object>> updateCart(@RequestBody RequestUpdateCartDTO requestUpdateCartDTO) {
+        boolean success= cartService.updateCart(requestUpdateCartDTO);
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("success", success);
+        responseMap.put("message", success ? "카트 업데이트 성공" : "카트 업데이트  실패");
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
