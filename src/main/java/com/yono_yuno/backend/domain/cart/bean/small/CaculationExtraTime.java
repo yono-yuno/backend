@@ -26,8 +26,16 @@ public class CaculationExtraTime {
 
     public String extraTime(UUID userId, UUID cartId) {
         UserEntity user = getUserEntityBean.exec(userId);
+
+        if(user==null){
+            throw new CustomException(ErrorCode.USER_NOT_FOUND);
+        }
+
         String userTime= user.getSettingTime();
 
+        if(userTime == null){
+            throw new CustomException(ErrorCode.USER_TIME_NOT_FOUND);
+        }
         // User 시간 처리
         int days = Integer.parseInt(userTime.substring(0, 2));
         int hours = Integer.parseInt(userTime.substring(2, 4));
