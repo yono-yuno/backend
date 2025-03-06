@@ -15,7 +15,7 @@ public class GetAllMonthDiaryEntityBean {
     public GetAllMonthDiaryEntityBean(DiaryRepositoryJPA diaryRepositoryJPA){
         this.diaryRepositoryJPA=diaryRepositoryJPA;
     }
-    public List<DiaryEntity> exec(UUID diaryId, YearMonth yearMonth) {
-        return diaryRepositoryJPA.findAllByUserIdAndMonth(diaryId, yearMonth);
+    public List<DiaryEntity> exec(UUID userId, YearMonth yearMonth) {
+        return diaryRepositoryJPA.findAllByUserIdAndMonth(userId, yearMonth);
     }
 }
