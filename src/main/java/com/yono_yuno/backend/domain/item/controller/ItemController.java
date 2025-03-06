@@ -17,7 +17,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/item")
-@Tag(name = "getItem API", description = "상품 조회 API")
+@Tag(name = "상품 조회 API", description = "상품 조회 관련 API")
 public class ItemController {
 
     private final ItemService itemService;
@@ -36,20 +36,21 @@ public class ItemController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "상품 조회 성공!" : "상품 조회 실패..");
-        responseMap.put("itemDetail", responseGetItemDTO);
+        responseMap.put("itemInfo", responseGetItemDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
 
     @Operation(summary = "상품 전체 조회", description = "category별 전체 상품의 정보를 조회합니다.")
     @GetMapping("/{category}")
-    public ResponseEntity<Map<String, Object>> getItemAll(@PathVariable("category") String category) {
+    public ResponseEntity<Map<String, Object>> getAllItem(@PathVariable("category") String category, @RequestParam(value = "sort", required = false, defaultValue = "latest") String sort) {
 
-        List<ResponseGetItemAllDTO> items = itemService.getItemsByCategory(category);
+        if("전체".equals(category)) {
+            category = "all";
+        }
 
-
-
-        boolean success = items != null;
+        List<ResponseGetItemAllDTO> items = itemService.getItemsByCategory(category, sort);
+        boolean success = !items.isEmpty();
 
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);

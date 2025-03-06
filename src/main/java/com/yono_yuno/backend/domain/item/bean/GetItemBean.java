@@ -38,14 +38,16 @@ public class GetItemBean {
     }
 
     public List<ResponseGetItemAllDTO> exec(String category) {
-        List<ItemEntity> itemList = getItemEntityBean.exec(category);
+        if("전체".equals(category)) {
+            category = "all";
+        }
+       List<ItemEntity> itemList  = getItemEntityBean.exec(category);
 
-        if (itemList == null || itemList.isEmpty()) {
+        if(itemList.isEmpty()) {
             throw new CustomException(ErrorCode.ITEM_NOT_FOUND);
         }
 
-        return itemList.stream()
-                .map(createResponseGetItemAllDTOBean::exec)
+        return itemList.stream().map(createResponseGetItemAllDTOBean::exec)
                 .collect(Collectors.toList());
     }
 }

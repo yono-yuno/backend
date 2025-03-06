@@ -16,9 +16,14 @@ public class GetItemEntityBean {
     }
 
     public ItemEntity exec(UUID itemId) {
-        return  itemRepositoryJPA.findById(itemId).orElse(null);
+        return itemRepositoryJPA.findById(itemId).orElse(null);
     }
 
-    public List<ItemEntity> exec(String category) { return  itemRepositoryJPA.findByCategory(category).orElse(null);
+    public List<ItemEntity> exec(String category) {
+        if ("all".equals(category)) {
+            return itemRepositoryJPA.findAll();
+        } else {
+            return itemRepositoryJPA.findByCategory(category).orElse(null);
+        }
     }
 }
