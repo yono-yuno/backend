@@ -1,17 +1,16 @@
 package com.yono_yuno.backend.domain.cart.bean.small;
 
-import com.yono_yuno.backend.domain.cart.bean.GetCartBean;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
-import com.yono_yuno.backend.domain.cart.repository.CartRepositoryJpa;
+import com.yono_yuno.backend.domain.cart.repository.CartRepositoryJPA;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
 @Component
 public class GetCartEntityBean {
-    private final CartRepositoryJpa cartRepositoryJpa;
+    private final CartRepositoryJPA cartRepositoryJpa;
 
-    public GetCartEntityBean(CartRepositoryJpa cartRepositoryJpa){
+    public GetCartEntityBean(CartRepositoryJPA cartRepositoryJpa){
         this.cartRepositoryJpa=cartRepositoryJpa;
     }
 
