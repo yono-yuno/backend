@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CreateResponseGetAllCartDTOBean {
-    private final CaculationExtraTime caculationExtraTime;
+    private final CalculationExtraTime calculationExtraTime;
 
-    public CreateResponseGetAllCartDTOBean(CaculationExtraTime caculationExtraTime){
-        this.caculationExtraTime=caculationExtraTime;
+    public CreateResponseGetAllCartDTOBean(CalculationExtraTime calculationExtraTime){
+        this.calculationExtraTime = calculationExtraTime;
     }
     public ResponseGetAllCartDTO exec(CartEntity cart){
-        String extraTime = caculationExtraTime.extraTime(cart.getUserId(), cart.getCartId());
+        String extraTime = calculationExtraTime.extraTime(cart.getUserId(), cart);
         return ResponseGetAllCartDTO.builder()
                 .cartId(cart.getCartId())
                 .userId(cart.getUserId())

@@ -2,10 +2,8 @@ package com.yono_yuno.backend.domain.cart.bean.small;
 
 import com.yono_yuno.backend.domain.cart.entity.AskCount;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
-import com.yono_yuno.backend.domain.cart.repository.CartRepositoryJPA;
 import com.yono_yuno.backend.domain.user.bean.small.GetUserEntityBean;
 import com.yono_yuno.backend.domain.user.entity.UserEntity;
-import com.yono_yuno.backend.domain.user.repository.UserRepositoryJPA;
 import com.yono_yuno.backend.global.error.CustomException;
 import com.yono_yuno.backend.global.error.ErrorCode;
 import org.springframework.stereotype.Component;
@@ -15,19 +13,19 @@ import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Component
-public class CaculationExtraTime {
+public class CalculationExtraTime {
     private final GetUserEntityBean getUserEntityBean;
     private final GetCartEntityBean getCartEntityBean;
 
-    public CaculationExtraTime(GetUserEntityBean getUserEntityBean, GetCartEntityBean getCartEntityBean) {
+    public CalculationExtraTime(GetUserEntityBean getUserEntityBean, GetCartEntityBean getCartEntityBean) {
         this.getUserEntityBean = getUserEntityBean;
         this.getCartEntityBean = getCartEntityBean;
     }
 
-    public String extraTime(UUID userId, UUID cartId) {
+    public String extraTime(UUID userId, CartEntity cart) {
         UserEntity user = getUserEntityBean.exec(userId);
 
-        if(user==null){
+        if(user == null){
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
 
@@ -43,7 +41,6 @@ public class CaculationExtraTime {
         long halfTimeInMinutes = totalMinutes / 2;
 
         // Cart 정보 가져오기
-        CartEntity cart = getCartEntityBean.exec(cartId);
         if (cart == null){
             throw new CustomException(ErrorCode.CART_NOT_FOUND);
         }
