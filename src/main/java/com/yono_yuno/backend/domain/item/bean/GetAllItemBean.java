@@ -48,7 +48,6 @@ public class GetAllItemBean {
                                     ResponseGetItemAllDTO::getCreateAt,
                                     Comparator.nullsLast(Comparator.naturalOrder()) // null 값을 마지막으로 정렬
                             ).reversed())
-//                            .sorted(Comparator.comparing(ResponseGetItemAllDTO::getCreateAt).reversed())
                             .collect(Collectors.toList());
                 case "oldest":
                     return items.stream()
@@ -64,6 +63,6 @@ public class GetAllItemBean {
                             .collect(Collectors.toList());
             }
         }
-        return items;
+        return null;
     }
 }
