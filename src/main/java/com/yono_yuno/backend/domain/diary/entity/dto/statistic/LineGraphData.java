@@ -13,5 +13,5 @@ public class LineGraphData {
     int day;
     int prev;
     int curr;
-    boolean weekData;
+    int weekData;
 }

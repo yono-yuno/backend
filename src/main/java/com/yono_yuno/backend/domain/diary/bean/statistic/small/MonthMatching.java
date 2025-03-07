@@ -17,14 +17,22 @@ public class MonthMatching {
         LocalDate startOfWeek = today.with(WeekFields.of(Locale.US).dayOfWeek(), 1);
         LocalDate endOfWeek = startOfWeek.plusDays(6);
 
+        int sumcur=0;
+        int sumpre=0;
+
         for (int day = 1; day <= 31; day++) {
-            Integer currentPay = Optional.ofNullable(current.get(day)).orElse(0);
-            Integer prevPay = Optional.ofNullable(prev.get(day)).orElse(0);
+            int currentPay = Optional.ofNullable(current.get(day)).orElse(0);
+            sumcur += currentPay;
+
+            int prevPay = Optional.ofNullable(prev.get(day)).orElse(0);
+            sumpre += prevPay;
 
             LocalDate date = LocalDate.of(today.getYear(), today.getMonth(), day);
             boolean isThisWeek = !date.isBefore(startOfWeek) && !date.isAfter(endOfWeek);
 
-            LineGraphData data = new LineGraphData(day, prevPay, currentPay, isThisWeek);
+
+
+            LineGraphData data = new LineGraphData(day, sumpre, sumcur, isThisWeek ? currentPay : 0);
             lineGraphData.add(data);
         }
 
