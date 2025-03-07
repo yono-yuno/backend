@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Tag(name = "유저 API", description = "유저 관련 API")
 @RequestMapping("/api/user")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:5173")
 @RestController
 public class UserController {
     private final UserService userService;

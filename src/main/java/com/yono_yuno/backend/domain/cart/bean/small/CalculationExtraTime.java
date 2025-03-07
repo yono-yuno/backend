@@ -20,7 +20,7 @@ public class CalculationExtraTime {
         this.getUserEntityBean = getUserEntityBean;
     }
 
-    public String extraTime(UUID userId, CartEntity cart) {
+    public String exec(UUID userId, CartEntity cart) {
         UserEntity user = getUserEntityBean.exec(userId);
 
         // 예외처리
