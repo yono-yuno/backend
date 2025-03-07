@@ -20,10 +20,10 @@ public class GetItemEntityBean {
     }
 
     public List<ItemEntity> exec(String category) {
-        if ("all".equals(category)) {
+        if ("전체".equals(category)) {
             return itemRepositoryJPA.findAll();
         } else {
-            return itemRepositoryJPA.findByCategory(category).orElse(null);
+            return itemRepositoryJPA.findAllByCategory(category);
         }
     }
 }

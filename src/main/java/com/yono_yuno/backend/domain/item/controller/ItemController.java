@@ -44,12 +44,7 @@ public class ItemController {
     @Operation(summary = "상품 전체 조회", description = "category별 전체 상품의 정보를 조회합니다.")
     @GetMapping("/{category}")
     public ResponseEntity<Map<String, Object>> getAllItem(@PathVariable("category") String category, @RequestParam(value = "sort", required = false, defaultValue = "latest") String sort) {
-
-        if("전체".equals(category)) {
-            category = "all";
-        }
-
-        List<ResponseGetItemAllDTO> items = itemService.getItemsByCategory(category, sort);
+        List<ResponseGetItemAllDTO> items = itemService.getAll(category, sort);
         boolean success = !items.isEmpty();
 
         Map<String, Object> responseMap = new HashMap<>();
