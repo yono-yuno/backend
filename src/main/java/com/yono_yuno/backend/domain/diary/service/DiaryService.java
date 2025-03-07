@@ -4,8 +4,10 @@ import com.yono_yuno.backend.domain.diary.bean.CreateDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetAllDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.UpdateDiaryBean;
+import com.yono_yuno.backend.domain.diary.bean.statistic.GetStatisticBean;
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import com.yono_yuno.backend.domain.diary.entity.dto.*;
+import com.yono_yuno.backend.domain.diary.entity.dto.statistic.ResponseGetStatistic;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +19,14 @@ public class DiaryService {
     private final GetDiaryBean getDiaryBean;
     private final UpdateDiaryBean updateDiaryBean;
     private final GetAllDiaryBean getAllDiaryBean;
+    private final GetStatisticBean getStatisticBean;
 
-    public DiaryService(GetAllDiaryBean getAllDiaryBean,CreateDiaryBean createDiaryBean, GetDiaryBean getDiaryBean, UpdateDiaryBean updateDiaryBean){
+    public DiaryService(GetAllDiaryBean getAllDiaryBean,CreateDiaryBean createDiaryBean, GetDiaryBean getDiaryBean, UpdateDiaryBean updateDiaryBean,GetStatisticBean getStatisticBean){
         this.createDiaryBean=createDiaryBean;
         this.getAllDiaryBean=getAllDiaryBean;
         this.getDiaryBean= getDiaryBean;
         this.updateDiaryBean = updateDiaryBean;
+        this.getStatisticBean=getStatisticBean;
     }
 
     public ResponseCreateDiaryDTO write(RequestCreateDiaryDTO requestCreateDiaryDto){
@@ -39,5 +43,9 @@ public class DiaryService {
 
     public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId){
         return getAllDiaryBean.exec(userId);
+    }
+
+    public ResponseGetStatistic statistic(UUID userId){
+        return getStatisticBean.exec(userId);
     }
 }

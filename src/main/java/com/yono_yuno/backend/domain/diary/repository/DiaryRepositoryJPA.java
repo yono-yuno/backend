@@ -12,6 +12,6 @@ public interface DiaryRepositoryJPA extends JpaRepository<DiaryEntity, UUID> {
     DiaryEntity findByUserId(UUID userId);
     List<DiaryEntity> findAllByUserId(UUID userId);
 
-    @Query("SELECT d FROM DiaryEntity d WHERE d.userId = :userId AND FUNCTION('YEAR_MONTH', d.createdAt) = :yearMonth")
-    List<DiaryEntity> findAllByUserIdAndMonth(@Param("userId") UUID userId, @Param("yearMonth") YearMonth yearMonth);
+    @Query("SELECT d FROM DiaryEntity d WHERE d.userId = :userId AND FUNCTION('DATE_FORMAT', d.createdAt, '%Y%m') = :yearMonth")
+    List<DiaryEntity> findAllByUserIdAndMonth(@Param("userId") UUID userId, @Param("yearMonth") String yearMonth);
 }

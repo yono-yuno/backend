@@ -1,26 +1,44 @@
 package com.yono_yuno.backend.domain.diary.bean.statistic;
 
+import com.yono_yuno.backend.domain.diary.bean.statistic.small.CreateResponseStatisticBean;
+import com.yono_yuno.backend.domain.diary.bean.statistic.small.CreateResponseLineGraph;
+import com.yono_yuno.backend.domain.diary.bean.statistic.small.CreateResponsePieGraph;
+import com.yono_yuno.backend.domain.diary.bean.statistic.small.GetAllMonthDiaryEntityBean;
+import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
+import com.yono_yuno.backend.domain.diary.entity.dto.statistic.ResponseGetStatistic;
+import com.yono_yuno.backend.global.error.CustomException;
+import com.yono_yuno.backend.global.error.ErrorCode;
 import org.springframework.stereotype.Component;
+
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.UUID;
 
 @Component
 public class GetStatisticBean {
-    //일 단위 비교
-        // 이번달 , 저번달 entity 가져오기
-        //
-        // 일에 맞게 매칭 후 반환 -> 응답 만들기로
+    private final CreateResponseStatisticBean createResponseStatisticBean;
+    private final GetAllMonthDiaryEntityBean getAllMonthDiaryEntityBean;
 
-    //카테 고리별 비교
-        //이번달 entity 가져오기
-        // 카테고리별 총 금액, 퍼센테이지 반환 -> 응답 만들기로
+    public GetStatisticBean(GetAllMonthDiaryEntityBean getAllMonthDiaryEntityBean,CreateResponseStatisticBean createResponseStatisticBean){
+        this.getAllMonthDiaryEntityBean=getAllMonthDiaryEntityBean;
+        this.createResponseStatisticBean=createResponseStatisticBean;
+    }
+    public ResponseGetStatistic exec(UUID userId){
+        YearMonth nowMonth= YearMonth.now();
+        String yearMonthString = nowMonth.format(DateTimeFormatter.ofPattern("yyyyMM"));
+        List<DiaryEntity> current = getAllMonthDiaryEntityBean.exec(userId,yearMonthString);
 
-    // 다 해서 응답 만들기
+        if(current == null){
+            throw new CustomException(ErrorCode.CURRENT_NOT_FOUND);
+        }
 
-    //currentList와 prevList에 들어있는 DiaryEntity들의 createAt을 갖고 와서 getDate를 통해 날짜가 일치한
-    //diaryentity의 itemId를 가지고 itemdentity에서 price를 갖고와 야함
+        String prevYearMonthString = nowMonth.minusMonths(1).format(DateTimeFormatter.ofPattern("yyyyMM"));
+        List<DiaryEntity> prev = getAllMonthDiaryEntityBean.exec(userId,prevYearMonthString);
+        if(prev == null){
+            throw new CustomException(ErrorCode.PREV_NOT_FOUND);
+        }
+        return createResponseStatisticBean.exec(current,prev);
+    }
 
-    //본문
-    //userId와 yearMonth로 entity 가져와서 -> current는 now, prev는 now-1
-    //변수명 = 바로 MonthStatistic으로 매개 변수 넣어주기 (CurrentMonthList<entity>, PrevMonthList<Entity>)
-
-    //
 }

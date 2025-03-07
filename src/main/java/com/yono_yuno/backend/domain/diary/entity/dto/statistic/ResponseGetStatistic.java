@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ResponseGetStatistic {
-    LineGraphData lineGraphData;
-    PieGraphData pieGraphData;
+    List<LineGraphData> lineGraphData;
+    List<PieGraphData> pieGraphData;
 }
