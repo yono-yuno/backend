@@ -13,7 +13,8 @@ public class CreateResponseGetAllCartDTOBean {
         this.calculationExtraTime = calculationExtraTime;
     }
     public ResponseGetAllCartDTO exec(CartEntity cart){
-        String extraTime = calculationExtraTime.extraTime(cart.getUserId(), cart);
+        String extraTime = calculationExtraTime.exec(cart.getUserId(), cart);
+
         return ResponseGetAllCartDTO.builder()
                 .cartId(cart.getCartId())
                 .userId(cart.getUserId())

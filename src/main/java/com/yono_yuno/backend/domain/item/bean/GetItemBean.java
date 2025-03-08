@@ -17,12 +17,10 @@ public class GetItemBean {
 
     private final GetItemEntityBean getItemEntityBean;
     private final CreateResponseGetItemDTOBean createResponseGetItemDTOBean;
-    private final CreateResponseGetItemAllDTOBean createResponseGetItemAllDTOBean;
 
     public GetItemBean(GetItemEntityBean getItemEntityBean, CreateResponseGetItemDTOBean createResponseGetItemDTOBean, CreateResponseGetItemAllDTOBean createResponseGetItemAllDTOBean) {
         this.getItemEntityBean = getItemEntityBean;
         this.createResponseGetItemDTOBean = createResponseGetItemDTOBean;
-        this.createResponseGetItemAllDTOBean = createResponseGetItemAllDTOBean;
     }
 
     public ResponseGetItemDTO exec(UUID itemId) {

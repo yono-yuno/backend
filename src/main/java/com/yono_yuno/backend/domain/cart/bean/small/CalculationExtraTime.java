@@ -15,43 +15,41 @@ import java.util.UUID;
 @Component
 public class CalculationExtraTime {
     private final GetUserEntityBean getUserEntityBean;
-    private final GetCartEntityBean getCartEntityBean;
 
-    public CalculationExtraTime(GetUserEntityBean getUserEntityBean, GetCartEntityBean getCartEntityBean) {
+    public CalculationExtraTime(GetUserEntityBean getUserEntityBean) {
         this.getUserEntityBean = getUserEntityBean;
-        this.getCartEntityBean = getCartEntityBean;
     }
 
-    public String extraTime(UUID userId, CartEntity cart) {
+    public String exec(UUID userId, CartEntity cart) {
         UserEntity user = getUserEntityBean.exec(userId);
 
-        if(user == null){
+        // 예외처리
+        if (user == null) {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
 
-        String userTime= user.getSettingTime();
-
-        if(userTime == null){
-            throw new CustomException(ErrorCode.USER_TIME_NOT_FOUND);
-        }
-        // User 시간 처리
-        int days = Integer.parseInt(userTime.substring(0, 2));
-        int hours = Integer.parseInt(userTime.substring(2, 4));
-        int totalMinutes = (days * 24 * 60) + (hours * 60); // userTime을 분 단위로 변환
-        long halfTimeInMinutes = totalMinutes / 2;
-
-        // Cart 정보 가져오기
-        if (cart == null){
+        if (cart == null) {
             throw new CustomException(ErrorCode.CART_NOT_FOUND);
         }
 
-        LocalDateTime cartTime=null;
+        String userTime= user.getSettingTime();
+        if (userTime == null) {
+            throw new CustomException(ErrorCode.USER_TIME_NOT_FOUND);
+        }
+
+        // User 시간 처리
+        int days = Integer.parseInt(userTime.substring(0, 2));
+        int hours = Integer.parseInt(userTime.substring(2, 4));
+        int totalMinutes = (days * 24 * 60) + (hours * 60); // 유저의 고민시간을 분 단위로 변환
+        long halfTimeInMinutes = totalMinutes / 2;
+
+        LocalDateTime cartTime = null;
         AskCount askCount= cart.getAskCount();
 
-        if (askCount==AskCount.FIRST_THINK){
+        if (askCount == AskCount.FIRST_THINK) {
             cartTime = cart.getCreatedAt();
-        } else if (askCount==AskCount.SECOND_THINK) {
-            cartTime=cart.getUpdatedAt();
+        } else if (askCount == AskCount.SECOND_THINK) {
+            cartTime = cart.getUpdatedAt();
         } else {
             throw new CustomException(ErrorCode.CART_TIME_NOT_FOUND);
         }
@@ -59,10 +57,16 @@ public class CalculationExtraTime {
         // 시간을 더한 결과 계산
         LocalDateTime extraDateTime = cartTime.plusMinutes(halfTimeInMinutes);
 
+        // 고민시간이 끝났을 경우
+        LocalDateTime now = LocalDateTime.now();
+        if (extraDateTime.isBefore(now)) {
+            return "00-00-00";
+        }
+
         // 차이 계산 (일, 시간, 분)
-        long extraDays = ChronoUnit.DAYS.between(cartTime, extraDateTime);
-        long extraHours = ChronoUnit.HOURS.between(cartTime, extraDateTime) % 24;
-        long extraMinutes = ChronoUnit.MINUTES.between(cartTime, extraDateTime) % 60;
+        long extraDays = ChronoUnit.DAYS.between(now, extraDateTime);
+        long extraHours = ChronoUnit.HOURS.between(now, extraDateTime) % 24;
+        long extraMinutes = ChronoUnit.MINUTES.between(now, extraDateTime) % 60;
 
         return String.format("%02d-%02d-%02d", extraDays, extraHours, extraMinutes);
     }

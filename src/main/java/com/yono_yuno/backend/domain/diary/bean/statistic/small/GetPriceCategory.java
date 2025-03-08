@@ -1,21 +1,23 @@
 package com.yono_yuno.backend.domain.diary.bean.statistic.small;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
-import com.yono_yuno.backend.domain.item.ItemEntity;
-import com.yono_yuno.backend.domain.item.ItemRepositoryJPA;
+import com.yono_yuno.backend.domain.item.bean.small.GetItemEntityBean;
+import com.yono_yuno.backend.domain.item.entity.ItemEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+
 @Component
 public class GetPriceCategory {
-    private final ItemRepositoryJPA itemRepositoryJPA;
+    private final GetItemEntityBean getItemEntityBean;
 
-    public GetPriceCategory(ItemRepositoryJPA itemRepositoryJPA){
-        this.itemRepositoryJPA=itemRepositoryJPA;
+    public GetPriceCategory(GetItemEntityBean getItemEntityBean) {
+        this.getItemEntityBean = getItemEntityBean;
     }
-    public Map<String, Object> exec(DiaryEntity diary){
-        ItemEntity item = itemRepositoryJPA.findByItemId(diary.getItemId());
+
+    public Map<String, Object> exec(DiaryEntity diary) {
+        ItemEntity item = getItemEntityBean.exec(diary.getItemId());
 
         int price = item.getPrice();
         String category = item.getCategory();

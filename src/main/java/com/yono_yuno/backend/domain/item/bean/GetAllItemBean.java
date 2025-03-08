@@ -17,12 +17,10 @@ import java.util.stream.Collectors;
 public class GetAllItemBean {
 
     private final GetItemEntityBean getItemEntityBean;
-    private final CreateResponseGetItemDTOBean createResponseGetItemDTOBean;
     private final CreateResponseGetItemAllDTOBean createResponseGetItemAllDTOBean;
 
     public GetAllItemBean(GetItemEntityBean getItemEntityBean, CreateResponseGetItemDTOBean createResponseGetItemDTOBean, CreateResponseGetItemAllDTOBean createResponseGetItemAllDTOBean) {
         this.getItemEntityBean = getItemEntityBean;
-        this.createResponseGetItemDTOBean = createResponseGetItemDTOBean;
         this.createResponseGetItemAllDTOBean = createResponseGetItemAllDTOBean;
     }
 
@@ -40,7 +38,7 @@ public class GetAllItemBean {
     public List<ResponseGetItemAllDTO> getItemsByCategory(String category, String sort) {
         List<ResponseGetItemAllDTO> items = this.exec(category, sort);
 
-        if(sort != null) {
+        if (sort != null) {
             switch (sort) {
                 case "latest":
                     return items.stream()
@@ -63,6 +61,7 @@ public class GetAllItemBean {
                             .collect(Collectors.toList());
             }
         }
+
         return null;
     }
 }

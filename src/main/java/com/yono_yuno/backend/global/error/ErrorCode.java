@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
+    ALARM_NOT_FOUND(HttpStatus.NOT_FOUND, false, "ALARM_001", "알람을 찾을 수 없습니다."),
     CURRENT_NOT_FOUND(HttpStatus.NOT_FOUND, false, "STATISTIC-001", "이번 달 통계 정보를 찾을 수 없습니다."),
     PREV_NOT_FOUND(HttpStatus.NOT_FOUND, false, "STATISTIC-002", "저번 달 통계 정보를 찾을 수 없습니다."),
     LINE_NOT_CREATE(HttpStatus.NOT_FOUND, false, "STATISTIC-003", "선 그래프 정보를 만들 수 없습니다."),
