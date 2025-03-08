@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.alarm.controller;
 
+import com.yono_yuno.backend.domain.alarm.entity.dto.RequestUpdateAlarmDTO;
 import com.yono_yuno.backend.domain.alarm.entity.dto.ResponseGetAllAlarmDTO;
 import com.yono_yuno.backend.domain.alarm.service.AlarmService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,7 +16,7 @@ import java.util.UUID;
 
 @Tag(name = "알람 API", description = "알람 관련 API")
 @RequestMapping("/api/alarm")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("*")
 @RestController
 public class AlarmController {
     private final AlarmService alarmService;
@@ -35,6 +36,19 @@ public class AlarmController {
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "알림조회 성공!" : "알림조회 실패...");
         responseMap.put("alarmList", alarmList);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
+
+    @Operation(summary = "알람 확인", description = "특정 유저의 알람 확인 내역을 수정합니다.")
+    @PutMapping()
+    public ResponseEntity<Map<String, Object>> updateAlarm(@RequestBody RequestUpdateAlarmDTO requestUpdateAlarmDTO) {
+        boolean success = alarmService.updateAlarm(requestUpdateAlarmDTO);
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "알림수정 성공!" : "알림수정 실패...");
+        responseMap.put("alarmList", success);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }

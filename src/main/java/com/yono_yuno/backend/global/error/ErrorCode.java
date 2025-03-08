@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
+    ALARM_NOT_FOUND(HttpStatus.NOT_FOUND, false, "ALARM_001", "알람을 찾을 수 없습니다."),
     CART_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-001", "카트(단일)을 찾을 수 없습니다."),
     CART_NOT_IN(HttpStatus.NOT_FOUND, false, "CART-002", "상품을 카트에 넣을 수 없습니다."),
     CART_TIME_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-003", "카트 시간을 찾을 수 없습니다."),

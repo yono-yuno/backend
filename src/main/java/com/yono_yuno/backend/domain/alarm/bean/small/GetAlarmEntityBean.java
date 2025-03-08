@@ -15,6 +15,10 @@ public class GetAlarmEntityBean {
         this.alarmRepositoryJPA = alarmRepositoryJPA;
     }
 
+    public AlarmEntity exec(UUID alarmId) {
+        return alarmRepositoryJPA.findById(alarmId).orElse(null);
+    }
+
     public AlarmEntity exec(UUID userId, UUID cartId, AskCount askCount) {
         return alarmRepositoryJPA.findByUserIdAndCartIdAndAskCount(userId, cartId, askCount);
     }
