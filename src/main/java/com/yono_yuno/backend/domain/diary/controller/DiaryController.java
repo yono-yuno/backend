@@ -2,6 +2,7 @@ package com.yono_yuno.backend.domain.diary.controller;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import com.yono_yuno.backend.domain.diary.entity.dto.*;
+import com.yono_yuno.backend.domain.diary.entity.dto.statistic.ResponseGetStatistic;
 import com.yono_yuno.backend.domain.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -76,6 +77,20 @@ public class DiaryController {
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "일기 리스트 조회 성공" : "일기 리스트 조회 실패");
         responseMap.put("diaryList", responseDiaryList);//수정
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
+
+    @Operation(summary = "통계 조회", description = "통계 정보를 반환합니다.")
+    @GetMapping("/statistic")
+    public ResponseEntity<Map<String,Object>> statistic(@RequestParam("userId")UUID userId){
+        ResponseGetStatistic responseStatistic = diaryService.statistic(userId);
+
+        boolean success = responseStatistic != null;
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "통계 조회 성공" : "통계 조회 실패");
+        responseMap.put("statistic", responseStatistic);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
