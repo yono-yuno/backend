@@ -17,7 +17,7 @@ public class CreateResponseGetItemDTOBean {
                 .contentImg(item.getContentImg())
                 .category(item.getCategory())
                 .discount(item.getDiscount())
-                .createAt(item.getCreateAt())
+                .createAt(item.getCreatedAt())
                 .itemStars(item.getItemStars())
                 .reviewNum(item.getReviewNum())
                 .build();

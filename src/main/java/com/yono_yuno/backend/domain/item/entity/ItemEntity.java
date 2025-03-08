@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.item.entity;
 
+import com.yono_yuno.backend.global.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-public class ItemEntity {
+public class ItemEntity extends BaseEntity {
     @Id
     UUID itemId;
     String itemName;
@@ -26,9 +27,6 @@ public class ItemEntity {
     String category;
     double itemStars;
     int reviewNum;
-    LocalDateTime createAt;
-    LocalDateTime updateAt;
     int discount;
-
 }
 
