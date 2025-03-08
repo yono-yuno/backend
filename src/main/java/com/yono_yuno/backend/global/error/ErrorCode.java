@@ -8,6 +8,11 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorCode {
     ALARM_NOT_FOUND(HttpStatus.NOT_FOUND, false, "ALARM_001", "알람을 찾을 수 없습니다."),
+    CURRENT_NOT_FOUND(HttpStatus.NOT_FOUND, false, "STATISTIC-001", "이번 달 통계 정보를 찾을 수 없습니다."),
+    PREV_NOT_FOUND(HttpStatus.NOT_FOUND, false, "STATISTIC-002", "저번 달 통계 정보를 찾을 수 없습니다."),
+    LINE_NOT_CREATE(HttpStatus.NOT_FOUND, false, "STATISTIC-003", "선 그래프 정보를 만들 수 없습니다."),
+    PIE_NOT_CREATE(HttpStatus.NOT_FOUND, false, "STATISTIC-004", "파이 그래프 정보를 만들 수 없습니다."),
+    DATE_PRICE_MATCHING_FAIL(HttpStatus.NOT_FOUND, false, "STATISTIC-005", "날짜와 금액 매칭을 실패했습니다."),
     CART_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-001", "카트(단일)을 찾을 수 없습니다."),
     CART_NOT_IN(HttpStatus.NOT_FOUND, false, "CART-002", "상품을 카트에 넣을 수 없습니다."),
     CART_TIME_NOT_FOUND(HttpStatus.NOT_FOUND, false, "CART-003", "카트 시간을 찾을 수 없습니다."),
