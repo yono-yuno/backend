@@ -22,7 +22,7 @@ public class AccountController {
     }
 
     @Operation(summary = "계좌 조회", description = "accountID로 해당 계좌의 정보를 조회합니다.")
-    @GetMapping()
+    @GetMapping("/account")
     public ResponseEntity<Map<String, Object>> getAccount(@RequestParam("AccountId") UUID accountId) {
         ResponseGetAccountDTO responseGetAccountDTO = accountService.getAccount(accountId);
 
