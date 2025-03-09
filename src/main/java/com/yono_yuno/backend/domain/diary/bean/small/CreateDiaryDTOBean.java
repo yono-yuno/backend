@@ -5,7 +5,7 @@ import com.yono_yuno.backend.domain.diary.entity.dto.ResponseCreateDiaryDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateDiaryDtoBean {
+public class CreateDiaryDTOBean {
     public ResponseCreateDiaryDTO exec(DiaryEntity diaryEntity){
         return ResponseCreateDiaryDTO.builder()
                 .diaryId(diaryEntity.getDiaryId())

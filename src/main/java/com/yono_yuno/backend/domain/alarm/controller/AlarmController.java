@@ -48,7 +48,6 @@ public class AlarmController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "알림수정 성공!" : "알림수정 실패...");
-        responseMap.put("alarmList", success);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
