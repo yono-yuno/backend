@@ -11,7 +11,6 @@ import java.util.UUID;
 
 @Service
 public class ItemService {
-
     private final GetItemBean getItemBean;
     private final GetAllItemBean getAllItemBean;
 

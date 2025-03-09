@@ -19,7 +19,6 @@ import java.util.UUID;
 @RequestMapping("/api/item")
 @Tag(name = "상품 조회 API", description = "상품 조회 관련 API")
 public class ItemController {
-
     private final ItemService itemService;
 
     public ItemController(ItemService itemService) {
@@ -38,10 +37,10 @@ public class ItemController {
         responseMap.put("message", success ? "상품 조회 성공!" : "상품 조회 실패..");
         responseMap.put("itemInfo", responseGetItemDTO);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
-    @Operation(summary = "상품 전체 조회", description = "category별 전체 상품의 정보를 조회합니다.")
+    @Operation(summary = "상품 전체 조회", description = "category 전체 상품의 정보를 조회합니다.")
     @GetMapping("/{category}")
     public ResponseEntity<Map<String, Object>> getAllItem(@PathVariable("category") String category, @RequestParam(value = "sort", required = false, defaultValue = "latest") String sort) {
         List<ResponseGetItemAllDTO> items = itemService.getAll(category, sort);
@@ -52,6 +51,6 @@ public class ItemController {
         responseMap.put("message", success ? "상품 리스트 조회 성공!" : "상품 리스트 조회 실패..");
         responseMap.put("itemList", items);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 }

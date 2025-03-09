@@ -15,7 +15,7 @@ public class ResponseGetItemAllDTO {
     String itemImg;
     String category;
     int discount;
-    LocalDateTime createAt;
+    LocalDateTime createdAt;
     double itemStars;
     int reviewNum;
 }
