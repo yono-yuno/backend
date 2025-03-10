@@ -14,8 +14,8 @@ public class AccountService {
         this.getAccountBean = getAccountBean;
     }
 
-    public ResponseGetAccountDTO getAccount(UUID AccountId) {
-        return getAccountBean.exec(AccountId);
+    public ResponseGetAccountDTO getAccount(UUID userId) {
+        return getAccountBean.exec(userId);
     }
 
 
