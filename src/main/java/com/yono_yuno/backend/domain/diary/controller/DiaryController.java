@@ -70,8 +70,8 @@ public class DiaryController {
 
     @Operation(summary = "일기 리스트 조회", description = "모든 일기를 조회 합니다.")
     @GetMapping("/all")
-    public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId") UUID userId) {
-       List<ResponseGetAllDiaryDTO> responseDiaryList = diaryService.getAllDiary(userId);
+    public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId") UUID userId,@RequestParam(value = "category", required = false, defaultValue = "전체") String category) {
+       List<ResponseGetAllDiaryDTO> responseDiaryList = diaryService.getAllDiary(userId,category);
 
        boolean success = !responseDiaryList.isEmpty();
         Map<String, Object> responseMap = new HashMap<>();
