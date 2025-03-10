@@ -47,7 +47,7 @@ public class UserController {
         responseMap.put("message", success ? "로그인 성공!" : "로그인 실패..");
         responseMap.put("userInfo", responseLoginDTO);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
     @Operation(summary = "설정 변경", description = "유저의 상한액, 전체 고민시간 설정을 변경합니다.")
@@ -59,7 +59,7 @@ public class UserController {
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "설정 변경 완료!" : "설정 변경 실패..");
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
     @Operation(summary = "유저 조회", description = "userId로 해당 유저의 정보를 조회합니다.")
@@ -74,6 +74,6 @@ public class UserController {
         responseMap.put("message", success ? "유저 조회 성공!" : "유저 조회 실패..");
         responseMap.put("userInfo", responseGetUserDTO);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 }

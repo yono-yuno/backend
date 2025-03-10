@@ -1,4 +1,4 @@
-package com.yono_yuno.backend.domain.diary.bean.statistic.small;
+package com.yono_yuno.backend.domain.diary.bean.small;
 
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import com.yono_yuno.backend.domain.item.bean.small.GetItemEntityBean;
@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class GetPriceCategory {
+public class GetPriceCategoryBean {
     private final GetItemEntityBean getItemEntityBean;
 
-    public GetPriceCategory(GetItemEntityBean getItemEntityBean) {
+    public GetPriceCategoryBean(GetItemEntityBean getItemEntityBean) {
         this.getItemEntityBean = getItemEntityBean;
     }
 

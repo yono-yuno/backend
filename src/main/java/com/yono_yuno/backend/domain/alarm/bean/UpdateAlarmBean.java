@@ -30,6 +30,10 @@ public class UpdateAlarmBean {
             throw new CustomException(ErrorCode.ALARM_NOT_FOUND);
         }
 
+        if (alarm.isCheck()) {
+            throw new CustomException(ErrorCode.ALARM_IS_EXIST);
+        }
+
         AlarmEntity updateAlarm = updateAlarmEntityBean.exec(alarm);
 
         if (updateAlarm == null) {

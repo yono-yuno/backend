@@ -11,5 +11,4 @@ public class RequestUpdateDiaryDTO {
     UUID dairyId;
     double consumerStars;
     String detailDiary;
-
 }
