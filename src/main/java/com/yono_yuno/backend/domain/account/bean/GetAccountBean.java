@@ -19,8 +19,8 @@ public class GetAccountBean {
         this.createResponseGetAccountDTOBean = createResponseGetAccountDTOBean;
     }
 
-    public ResponseGetAccountDTO exec(UUID accountId) {
-        AccountEntity account = getAccountEntityBean.exec(accountId);
+    public ResponseGetAccountDTO exec(UUID userId) {
+        AccountEntity account = getAccountEntityBean.exec(userId);
 
         if (account == null) {
             throw new CustomException(ErrorCode.ACCOUNT_NOT_FOUND);
