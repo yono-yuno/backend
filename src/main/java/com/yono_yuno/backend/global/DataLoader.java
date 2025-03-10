@@ -165,7 +165,7 @@ public class DataLoader implements CommandLineRunner {
                 .itemStars(5.0)
                 .reviewNum(213)
                 .category("전자제품")
-                .itemImg("")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/5/6/9/5/0/3/nPTVa/6762569503_B.jpg")
                 .contentImg("https://gi.esmplus.com/zenshopg/openmarket/wadiz/lzhd900y_42.jpg")
                 .build();
 
@@ -175,7 +175,7 @@ public class DataLoader implements CommandLineRunner {
                 .itemId(UUID.randomUUID())
                 .brandName("아쿠아픽")
                 .itemName("아쿠아픽 AQ-230 휴대용 구강세정기 무선 구강세척기 물치실 국내 대한치과의사협회 공식추천품")
-                .price(7500)
+                .price(75000)
                 .discount(6)
                 .itemStars(4.5)
                 .reviewNum(295)
