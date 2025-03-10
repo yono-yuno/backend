@@ -6,7 +6,6 @@ import com.yono_yuno.backend.domain.account.entity.AccountEntity;
 import com.yono_yuno.backend.domain.account.entity.dto.ResponseGetAccountDTO;
 import com.yono_yuno.backend.global.error.CustomException;
 import com.yono_yuno.backend.global.error.ErrorCode;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.UUID;
 
@@ -15,8 +14,6 @@ public class GetAccountBean {
     private final GetAccountEntityBean getAccountEntityBean;
     private final CreateResponseGetAccountDTOBean createResponseGetAccountDTOBean;
 
-
-    @Autowired
     public GetAccountBean(GetAccountEntityBean getAccountEntityBean, CreateResponseGetAccountDTOBean createResponseGetAccountDTOBean) {
         this.getAccountEntityBean = getAccountEntityBean;
         this.createResponseGetAccountDTOBean = createResponseGetAccountDTOBean;
