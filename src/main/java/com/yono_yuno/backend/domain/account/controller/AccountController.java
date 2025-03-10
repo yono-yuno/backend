@@ -23,9 +23,9 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @Operation(summary = "계좌 조회", description = "accountID로 해당 계좌의 정보를 조회합니다.")
+    @Operation(summary = "계좌 조회", description = "userId로 해당 계좌의 정보를 조회합니다.")
     @GetMapping()
-    public ResponseEntity<Map<String, Object>> getAccount(@RequestParam("AccountId") UUID userId) {
+    public ResponseEntity<Map<String, Object>> getAccount(@RequestParam("userId") UUID userId) {
         ResponseGetAccountDTO responseGetAccountDTO = accountService.getAccount(userId);
 
         boolean success = responseGetAccountDTO != null;

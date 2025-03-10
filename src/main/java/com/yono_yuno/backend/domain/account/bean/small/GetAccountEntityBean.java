@@ -14,7 +14,7 @@ public class GetAccountEntityBean {
         this.accountRepositoryJPA = accountRepositoryJPA;
     }
 
-    public AccountEntity exec(UUID accountId) {
-        return accountRepositoryJPA.findById(accountId).orElse(null);
+    public AccountEntity exec(UUID userId) {
+        return accountRepositoryJPA.findByUserId(userId);
     }
 }
