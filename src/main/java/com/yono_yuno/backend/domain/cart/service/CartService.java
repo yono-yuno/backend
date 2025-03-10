@@ -33,7 +33,7 @@ public class CartService {
     public boolean updateCart(RequestUpdateCartDTO requestUpdateCartDTO){
         return updateCartBean.exec(requestUpdateCartDTO);
     }
-    public List<ResponseGetAllCartDTO> getAllCart(UUID userId){
-        return getAllCartBean.exec(userId);
+    public List<ResponseGetAllCartDTO> getAllCart(UUID userId, String sort){
+        return getAllCartBean.exec(userId, sort);
     }
 }
