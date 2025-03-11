@@ -10,4 +10,5 @@ import java.util.UUID;
 public class ResponseLoginDTO {
     UUID userId;
     String userName;
+    boolean isFirst;
 }

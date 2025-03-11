@@ -1,13 +1,12 @@
 package com.yono_yuno.backend.domain.cart.entity.dto;
 
 import com.yono_yuno.backend.domain.cart.entity.AskCount;
-import com.yono_yuno.backend.domain.cart.entity.dto.GetItemInfo;
+import com.yono_yuno.backend.domain.item.entity.dto.ItemInfoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.print.DocFlavor;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -21,6 +20,6 @@ public class ResponseGetAllCartDTO {
     AskCount askCount;
     LocalDateTime createdAt;
     String extraTime;
-    GetItemInfo itemInfo;
+    ItemInfoDTO itemInfo;
 
 }

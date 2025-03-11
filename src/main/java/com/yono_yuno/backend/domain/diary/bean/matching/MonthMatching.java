@@ -1,4 +1,4 @@
-package com.yono_yuno.backend.domain.diary.bean.statistic.small;
+package com.yono_yuno.backend.domain.diary.bean.matching;
 
 import com.yono_yuno.backend.domain.diary.entity.dto.statistic.LineGraphData;
 import com.yono_yuno.backend.global.error.CustomException;
@@ -10,15 +10,15 @@ import java.time.temporal.WeekFields;
 import java.util.*;
 @Component
 public class MonthMatching {
-    public List<LineGraphData> exec(Map<Integer,Integer> current, Map<Integer,Integer> prev){
-        List<LineGraphData> lineGraphData =new ArrayList<>();
+    public List<LineGraphData> exec(Map<Integer,Integer> current, Map<Integer,Integer> prev) {
+        List<LineGraphData> lineGraphData = new ArrayList<>();
 
         LocalDate today = LocalDate.now();
         LocalDate startOfWeek = today.with(WeekFields.of(Locale.US).dayOfWeek(), 1);
         LocalDate endOfWeek = startOfWeek.plusDays(6);
 
-        int sumcur=0;
-        int sumpre=0;
+        int sumcur = 0;
+        int sumpre = 0;
 
         for (int day = 1; day <= 31; day++) {
             int currentPay = Optional.ofNullable(current.get(day)).orElse(0);
@@ -29,8 +29,6 @@ public class MonthMatching {
 
             LocalDate date = LocalDate.of(today.getYear(), today.getMonth(), day);
             boolean isThisWeek = !date.isBefore(startOfWeek) && !date.isAfter(endOfWeek);
-
-
 
             LineGraphData data = new LineGraphData(day, sumpre, sumcur, isThisWeek ? currentPay : 0);
             lineGraphData.add(data);

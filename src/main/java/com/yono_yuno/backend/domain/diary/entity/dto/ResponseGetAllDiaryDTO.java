@@ -1,5 +1,6 @@
 package com.yono_yuno.backend.domain.diary.entity.dto;
 
+import com.yono_yuno.backend.domain.item.entity.dto.ItemInfoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,6 @@ import java.util.UUID;
 @Builder
 public class ResponseGetAllDiaryDTO {
     UUID diaryId;
-    LocalDateTime createAt;
-    GetItemInfo itemInfo;
+    LocalDateTime createdAt;
+    ItemInfoDTO itemInfo;
 }

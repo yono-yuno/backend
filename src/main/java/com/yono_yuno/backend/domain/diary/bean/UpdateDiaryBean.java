@@ -18,27 +18,25 @@ public class UpdateDiaryBean {
     private final UpdateDiaryEntityBean updateDiaryEntityBean;
     private final SaveDairyEntityBean saveDairyEntityBean;
 
-    public UpdateDiaryBean(GetDiaryEntityBean getDiaryEntityBean, UpdateDiaryEntityBean updateDiaryEntityBean, SaveDairyEntityBean saveDairyEntityBean){
+    public UpdateDiaryBean(GetDiaryEntityBean getDiaryEntityBean, UpdateDiaryEntityBean updateDiaryEntityBean, SaveDairyEntityBean saveDairyEntityBean) {
         this.getDiaryEntityBean=getDiaryEntityBean;
         this.updateDiaryEntityBean=updateDiaryEntityBean;
         this.saveDairyEntityBean=saveDairyEntityBean;
     }
 
-    public boolean exec(RequestUpdateDiaryDTO requestUpdateDiaryDTO){
-        DiaryEntity diary=getDiaryEntityBean.exec(requestUpdateDiaryDTO.getDairyId());
-
-        if(diary == null){
+    public boolean exec(RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
+        DiaryEntity diary = getDiaryEntityBean.exec(requestUpdateDiaryDTO.getDairyId());
+        if (diary == null) {
             throw new CustomException(ErrorCode.DIARY_NOT_FOUND);
         }
 
         DiaryEntity updateDiary = updateDiaryEntityBean.exec(diary, requestUpdateDiaryDTO.getConsumerStars(), requestUpdateDiaryDTO.getDetailDiary());
-
-        if(updateDiary == null){
+        if (updateDiary == null) {
             return false;
         }
 
         saveDairyEntityBean.exec(updateDiary);
-        return true;
 
+        return true;
     }
 }

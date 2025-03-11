@@ -10,6 +10,7 @@ public class CreateResponseLoginDTOBean {
         return ResponseLoginDTO.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
+                .isFirst(user.getSettingTime() == null)
                 .build();
     }
 }
