@@ -273,6 +273,14 @@ public class DataLoader implements CommandLineRunner {
 
         diaryRepositoryJPA.save(diary6);
 
+        DiaryEntity diary7 = DiaryEntity.builder()
+                .diaryId(UUID.randomUUID())
+                .userId(user.getUserId())
+                .firstReview("환절기 입냄새 방지를 위해 후기가 좋은 제품으로 사봤다.")
+                .itemId(item8.getItemId())
+                .build();
+
+        diaryRepositoryJPA.save(diary7);
         // ---------------------------------------------------------------------
         // 알람 내역 데이터
         AlarmEntity alarm1 = AlarmEntity.builder()
