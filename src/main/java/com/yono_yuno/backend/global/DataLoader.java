@@ -247,6 +247,328 @@ public class DataLoader implements CommandLineRunner {
 
         itemRepositoryJPA.save(item12);
 
+        // 생활
+        ItemEntity item13 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("SINGER")
+                .itemName("[싱거미싱] 가정용 미싱 싱거 M2105 / 어린이도 안전한 재봉틀 / 본품+프리미엄매트")
+                .price(216540)
+                .discount(1)
+                .itemStars(4.6)
+                .reviewNum(66)
+                .category("생활")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1231798782/B.jpg?152000000")
+                .contentImg("https://ai.esmplus.com/taeyangsm/singer/product2020/mseries/m2105/0201-head.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item13);
+
+        ItemEntity item14 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("스타비데")
+                .itemName("스타비데 직수형 방수비데 MB-ipx5등급 최신출시 필터가필요없는직수방수 모델(설치비 별도)")
+                .price(13800)
+                .discount(10)
+                .itemStars(4.7)
+                .reviewNum(110)
+                .category("생활")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/4560598623/B.jpg?263000000")
+                .contentImg("https://gi.esmplus.com/thesubath/MB-ipx5/MB-ipx5.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item14);
+
+        ItemEntity item15 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("오후엔")
+                .itemName("오후엔 세탁소용 보풀제거기 OF-4000")
+                .price(29000)
+                .discount(5)
+                .itemStars(5.0)
+                .reviewNum(56)
+                .category("생활")
+                .itemImg("https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/7692620244/B.jpg?820000000")
+                .contentImg("https://store.img11.co.kr/68636870/cc8bcb6f-54cd-4913-8c1d-64a234eccce8_1729840593382.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item15);
+
+        // 뷰티
+        ItemEntity item16 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("이자녹스")
+                .itemName("초초초특가! 이자녹스 셀리뉴 컨실링 쿠션 본품2+리필2+퍼프3")
+                .price(30860)
+                .discount(20)
+                .itemStars(4.6)
+                .reviewNum(89)
+                .category("뷰티")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7743380418/B.jpg?582624392")
+                .contentImg("https://shfile.kshop.co.kr/d2/bo/common/editor/202410/24/1024192bdba5152.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item16);
+
+        ItemEntity item17 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("디올")
+                .itemName("소바쥬 오 드 퍼퓸 EDP 100ML")
+                .price(131740)
+                .discount(2)
+                .itemStars(5.0)
+                .reviewNum(2)
+                .category("뷰티")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7420329247/B.jpg?375000000")
+                .contentImg("https://i.sellerhub.shop/v1/detail/411d590342be8075818149505822f166f53719b1.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item17);
+
+        ItemEntity item18 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("보스티나")
+                .itemName("보스티나 더플러스 본품 12개+앰플 20매+꼬리빗 5개")
+                .price(66170)
+                .discount(17)
+                .itemStars(4.6)
+                .reviewNum(13)
+                .category("뷰티")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7666246643/B.jpg?478254715")
+                .contentImg("https://image.nsmall.com/ec_descimages/2/23/02/7845715426088835.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item18);
+
+        // 의류
+        ItemEntity item19 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("까사렐")
+                .itemName("[3만원인하] 까사렐 25PRE-SPRING 레이스포인트 니트 4종")
+                .price(43620)
+                .discount(12)
+                .itemStars(4.8)
+                .reviewNum(74)
+                .category("의류")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/8/2/8/2/3/9/yyEKG/8011828239_B.jpg")
+                .contentImg("https://image.cjonstyle.net/cjupload/htmledit/ven_img/543401/24FW_LACE/cacharel_laceknit_05.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item19);
+
+        ItemEntity item20 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("고비")
+                .itemName("[런칭가 1990000원]고비(GOBI) 캐시미어 100 헤리티지 우븐 롱코트")
+                .price(1462800)
+                .discount(8)
+                .itemStars(5.0)
+                .reviewNum(9999)
+                .category("의류")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7358209000/B.jpg?48425506")
+                .contentImg("https://image.hmall.com/CO/EDITOR/20241010/172900597/20241010_172900597_54814.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item20);
+
+        ItemEntity item21 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("블루핏")
+                .itemName("블루핏 이태리 스웨이드 자켓 (남성)")
+                .price(383900)
+                .discount(14)
+                .itemStars(4.8)
+                .reviewNum(921)
+                .category("의류")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/6244474580/B.jpg?632089482")
+                .contentImg("https://img.shinsegaetvshopping.com/htmleditor/763/SSG-%EB%B8%94%EB%A3%A8%ED%95%8F-%EC%8A%A4%EC%9B%A8%EC%9D%B4%EB%93%9C-%EC%9E%90%EC%BC%93_%EB%82%A8%EC%84%B1-011694498768842.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item21);
+
+        // 여행 · 취미
+        ItemEntity item22 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("종이비행기투어")
+                .itemName("해비치호텔앤리조트 (제주도호텔/호텔예약/리조트/제주여행)")
+                .price(168500)
+                .discount(5)
+                .itemStars(5.0)
+                .reviewNum(31)
+                .category("여행 · 취미")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/2/6/2/7/7/9/bcnba/6985262779_196082657.jpg")
+                .contentImg("https://ai.esmplus.com/airjonge4/haevichi/promo/250227/havichi_01.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item22);
+
+        ItemEntity item23 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("숙박페스타")
+                .itemName("[숙박페스타]오크밸리리조트 룸온리 or 객실+뮤지엄산티켓2인")
+                .price(111500)
+                .discount(5)
+                .itemStars(4.7)
+                .reviewNum(199)
+                .category("여행 · 취미")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/6/2/0/1/0/6/ySNnl/7489620106_196620001.jpg")
+                .contentImg("https://ai.esmplus.com/airjonge4/oakvalley/promo/250310/oak_01.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item23);
+
+        ItemEntity item24 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("J2K")
+                .itemName("해외전투 핀볼 게임 보드 게임기")
+                .price(38000)
+                .discount(56)
+                .itemStars(4.1)
+                .reviewNum(10)
+                .category("여행 · 취미")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/0/2/3/8/9/2/IDzmr/7194023892_196547574.jpg")
+                .contentImg("https://cdn.heyseller.kr/images/14e5dd7a-22ec-4984-93ff-b6f2b252ec71.png")
+                .build();
+
+        itemRepositoryJPA.save(item24);
+
+        // 스포츠
+        ItemEntity item25 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("스케쳐스")
+                .itemName("[스케쳐스]*공식판매처* 25S/S 남여 성인 발편한 워킹화/런닝화/운동화 모음전")
+                .price(89000)
+                .discount(5)
+                .itemStars(4.8)
+                .reviewNum(89)
+                .category("스포츠")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/2/7/0/3/2/1/HLWEF/7792270321_196314943.jpg")
+                .contentImg("https://cdn.011st.com/11dims/quality/75/11src/http://www.image.hahamall.net/~image/11st/250202/0217_SKE_bundle_67/A.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item25);
+
+        ItemEntity item26 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("JEEP")
+                .itemName("JEEP 방수점퍼 바람막이 후드집업 등산자켓 남녀공용 아웃도어 후리스자켓")
+                .price(65000)
+                .discount(2)
+                .itemStars(4.9)
+                .reviewNum(320)
+                .category("스포츠")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/3/5/1/3/8/1/rseLK/7998351381_196152128.jpg")
+                .contentImg("https://media-cdn.windly.cc/3f/19/d-3f19e3aa-ff4c-41e3-9fa0-97c383577e76/_w_758/_ma_1/_q_94/_ros_1.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item26);
+
+        ItemEntity item27 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("노스페이스")
+                .itemName("[노스페이스 본사 공식] S/S 신규 자켓/맨투맨/백팩/슈즈 등 모음")
+                .price(38000)
+                .discount(5)
+                .itemStars(4.7)
+                .reviewNum(3936)
+                .category("스포츠")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/2549441617/B.jpg?555721196")
+                .contentImg("https://cdn.011st.com/11dims/quality/75/11src/http://www.image.hahamall.net/~image/11st/250302/0307_NF_SS_100/A15.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item27);
+
+        // 도서
+        ItemEntity item28 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("쌤앤파커스")
+                .itemName("삶이라는 완벽한 농담 /이경규 에세이")
+                .price(16020)
+                .discount(10)
+                .itemStars(5.0)
+                .reviewNum(4)
+                .category("도서")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/9/2/0/9/4/3/kYYFL/8029920943_196441740.jpg")
+                .contentImg("https://image.yes24.com/momo/TopCate5163/MidCate003/516220692(1).jpg")
+                .build();
+
+        itemRepositoryJPA.save(item28);
+
+        ItemEntity item29 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("눈높이")
+                .itemName("눈높이영어 (3개월) - 영어실력 완성 프로그램")
+                .price(79200)
+                .discount(20)
+                .itemStars(5.0)
+                .reviewNum(86)
+                .category("도서")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/5/8/1/9/8/8/rzYBg/2344581988_195944705.jpg")
+                .contentImg("https://ai.esmplus.com/daekyomall/2024/eng/eng_01s.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item29);
+
+        ItemEntity item30 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("황우도서출판")
+                .itemName("[황우도서출판] 인물로 배우는 어린이 인성인문학 (50권 세트)")
+                .price(30600)
+                .discount(18)
+                .itemStars(4.6)
+                .reviewNum(71)
+                .category("도서")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/8/4/5/1/1/9/xRiys/6825845119_196343679.jpg")
+                .contentImg("https://cdn.011st.com/11dims/thumbnail/11src/editorImg/20240222/71401705/1708568815531_E.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item30);
+
+        // 인테리어
+        ItemEntity item31 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("듀오백")
+                .itemName("듀오백 Q1W 메쉬 사무용 컴퓨터 책상 의자")
+                .price(162000)
+                .discount(4)
+                .itemStars(4.7)
+                .reviewNum(130)
+                .category("인테리어")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1677745288/B.png?518456023")
+                .contentImg("https://www.duoback.co.kr/duo_online/new_quantum/q1w/q1w_01.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item31);
+
+        ItemEntity item32 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("잠스쿨")
+                .itemName("잠스쿨 떡실신 토퍼매트리스 접이식 침대 바닥 3단 수면매트 매트릭스 7CM 12CM")
+                .price(41540)
+                .discount(27)
+                .itemStars(4.7)
+                .reviewNum(2751)
+                .category("인테리어")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/8/1/6/3/6/9/OglQA/2261816369_196592001.jpg")
+                .contentImg("https://pangs144.imghost.cafe24.com/web/upload/product/MS001/00_01.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item32);
+
+        ItemEntity item33 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("KNOOK")
+                .itemName("[KNOOK] KYO SERIES 01 - 1인용안락의자, 1인용쇼파, 1인용쇼파의자, 1인쇼파,독서의자,거실의자,서재의자,암체어, 라운지체어, 인테리어의자, 편한의자, 흔들의자")
+                .price(172000)
+                .discount(64)
+                .itemStars(4.4)
+                .reviewNum(5910)
+                .category("인테리어")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/dl/v2/7/0/2/3/2/9/thbfM/8074702329_196628354.jpg")
+                .contentImg("https://cdn.011st.com/11dims/thumbnail/11src/editorImg/20250310/75648094/1741617077753_E.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item33);
+
         // ---------------------------------------------------------------------
         // 고민 중인 상품 데이터
         CartEntity cart1 = CartEntity.builder()
