@@ -1,5 +1,4 @@
 package com.yono_yuno.backend.domain.diary.entity;
-
 import com.yono_yuno.backend.global.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

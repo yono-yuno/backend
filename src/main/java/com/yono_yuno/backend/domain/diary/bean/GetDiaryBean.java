@@ -17,20 +17,18 @@ public class GetDiaryBean {
     private final CreateResponseGetDiaryDTOBean createResponseGetDiaryDTOBean;
     private final GetDiaryEntityBean getDiaryEntityBean;
 
-    public GetDiaryBean(CreateResponseGetDiaryDTOBean createResponseGetDiaryDTOBean, GetDiaryEntityBean getDiaryEntityBean){
+    public GetDiaryBean(CreateResponseGetDiaryDTOBean createResponseGetDiaryDTOBean, GetDiaryEntityBean getDiaryEntityBean) {
         this.createResponseGetDiaryDTOBean=createResponseGetDiaryDTOBean;
         this.getDiaryEntityBean=getDiaryEntityBean;
     }
 
-    public ResponseGetDiaryDTO exec(UUID diaryId){
-        DiaryEntity diary= getDiaryEntityBean.exec(diaryId);
+    public ResponseGetDiaryDTO exec(UUID diaryId) {
+        DiaryEntity diary = getDiaryEntityBean.exec(diaryId);
 
-        if (diary ==null){
-            throw new CustomException(ErrorCode.DIARY_NOT_FOUNT);
-
+        if (diary == null) {
+            throw new CustomException(ErrorCode.DIARY_NOT_FOUND);
         }
+
         return createResponseGetDiaryDTOBean.exec(diary);
     }
-
-
 }

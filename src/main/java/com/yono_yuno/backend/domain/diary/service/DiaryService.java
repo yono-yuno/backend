@@ -4,8 +4,9 @@ import com.yono_yuno.backend.domain.diary.bean.CreateDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetAllDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.GetDiaryBean;
 import com.yono_yuno.backend.domain.diary.bean.UpdateDiaryBean;
-import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
+import com.yono_yuno.backend.domain.diary.bean.GetStatisticBean;
 import com.yono_yuno.backend.domain.diary.entity.dto.*;
+import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetStatisticDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,15 +18,17 @@ public class DiaryService {
     private final GetDiaryBean getDiaryBean;
     private final UpdateDiaryBean updateDiaryBean;
     private final GetAllDiaryBean getAllDiaryBean;
+    private final GetStatisticBean getStatisticBean;
 
-    public DiaryService(GetAllDiaryBean getAllDiaryBean,CreateDiaryBean createDiaryBean, GetDiaryBean getDiaryBean, UpdateDiaryBean updateDiaryBean){
+    public DiaryService(GetAllDiaryBean getAllDiaryBean,CreateDiaryBean createDiaryBean, GetDiaryBean getDiaryBean, UpdateDiaryBean updateDiaryBean,GetStatisticBean getStatisticBean) {
         this.createDiaryBean=createDiaryBean;
         this.getAllDiaryBean=getAllDiaryBean;
         this.getDiaryBean= getDiaryBean;
         this.updateDiaryBean = updateDiaryBean;
+        this.getStatisticBean=getStatisticBean;
     }
 
-    public ResponseCreateDiaryDTO write(RequestCreateDiaryDTO requestCreateDiaryDto){
+    public ResponseCreateDiaryDTO write(RequestCreateDiaryDTO requestCreateDiaryDto) {
         return createDiaryBean.exec(requestCreateDiaryDto);
     }
 
@@ -33,11 +36,15 @@ public class DiaryService {
         return getDiaryBean.exec(diaryId);
     }
 
-    public boolean update(RequestUpdateDiaryDTO requestUpdateDiaryDTO){
+    public boolean update(RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
         return updateDiaryBean.exec(requestUpdateDiaryDTO);
     }
 
-    public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId){
-        return getAllDiaryBean.exec(userId);
+    public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId,String category){
+        return getAllDiaryBean.exec(userId,category);
+    }
+
+    public ResponseGetStatisticDTO statistic(UUID userId){
+        return getStatisticBean.exec(userId);
     }
 }
