@@ -4,7 +4,7 @@ import com.yono_yuno.backend.domain.diary.bean.small.CreateResponseGetAllDiaryDT
 import com.yono_yuno.backend.domain.diary.bean.small.GetAllDiaryEntityBean;
 import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import com.yono_yuno.backend.domain.diary.entity.dto.ResponseGetAllDiaryDTO;
-import com.yono_yuno.backend.domain.item.bean.GetItemBean;
+import com.yono_yuno.backend.domain.item.bean.small.GetItemEntityBean;
 import com.yono_yuno.backend.domain.user.bean.small.GetUserEntityBean;
 import com.yono_yuno.backend.domain.user.entity.UserEntity;
 import com.yono_yuno.backend.global.error.CustomException;
@@ -16,17 +16,17 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
-public class GetAllDiaryBean {
+public class    GetAllDiaryBean {
     private final GetUserEntityBean getUserEntityBean;
     private final GetAllDiaryEntityBean getAllDiaryEntityBean;
     private final CreateResponseGetAllDiaryDTOBean createResponseGetAllDiaryDTOBean;
-    private final GetItemBean getItemBean;
+    private final GetItemEntityBean getItemEntityBean;
 
-    public GetAllDiaryBean(GetUserEntityBean getUserEntityBean, GetAllDiaryEntityBean getAllDiaryEntityBean, CreateResponseGetAllDiaryDTOBean createResponseGetAllDiaryDTOBean, GetItemBean getItemBean) {
+    public GetAllDiaryBean(GetUserEntityBean getUserEntityBean, GetAllDiaryEntityBean getAllDiaryEntityBean, CreateResponseGetAllDiaryDTOBean createResponseGetAllDiaryDTOBean, GetItemEntityBean getItemEntityBean) {
         this.getUserEntityBean = getUserEntityBean;
         this.getAllDiaryEntityBean=getAllDiaryEntityBean;
         this.createResponseGetAllDiaryDTOBean=createResponseGetAllDiaryDTOBean;
-        this.getItemBean=getItemBean;
+        this.getItemEntityBean=getItemEntityBean;
     }
 
     public List<ResponseGetAllDiaryDTO> exec(UUID userId, String category) {
@@ -44,7 +44,7 @@ public class GetAllDiaryBean {
             diaryEntityList = diaryEntityList.stream()
                     .filter(diaryEntity -> {
                         UUID itemId = diaryEntity.getItemId();
-                        String itemCategory = getItemBean.exec(itemId).getCategory();
+                        String itemCategory = getItemEntityBean.exec(itemId).getCategory();
                         return itemCategory.equals(category);  // itemCategory와 전달된 category를 비교하여 일치하는 것만 필터링
                     })
                     .collect(Collectors.toList());
