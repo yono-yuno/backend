@@ -5,6 +5,7 @@ import com.yono_yuno.backend.domain.diary.entity.DiaryEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,13 @@ public class CategoryMatching {
             categoryPrice.put(category, categoryPrice.getOrDefault(category, 0) + price);
         }
 
-        return  categoryPrice;
+        return categoryPrice.entrySet()
+                .stream()
+                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue())) // 금액 내림차순 정렬
+                .collect(
+                        LinkedHashMap::new,
+                        (categoryPriceSort, entry) -> categoryPriceSort.put(entry.getKey(), entry.getValue()),
+                        Map::putAll
+                );  
     }
 }

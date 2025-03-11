@@ -65,8 +65,8 @@ public class CartController {
 
     @Operation(summary = "생각 중인 상품 목록 조회", description = "생각 중인 상품의 목록을 조회합니다.")
     @GetMapping("/all")
-    public ResponseEntity<Map<String, Object>> getAllCart(@RequestParam("userId") UUID userId) {
-        List<ResponseGetAllCartDTO> cartList = cartService.getAllCart(userId);
+    public ResponseEntity<Map<String, Object>> getAllCart(@RequestParam("userId") UUID userId, @RequestParam(value = "sort", required = false, defaultValue = "latest") String sort) {
+        List<ResponseGetAllCartDTO> cartList = cartService.getAllCart(userId, sort);
 
         boolean success = !cartList.isEmpty();
         Map<String, Object> responseMap = new HashMap<>();
