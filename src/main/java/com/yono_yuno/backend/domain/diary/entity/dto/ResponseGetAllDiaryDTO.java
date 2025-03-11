@@ -16,5 +16,6 @@ import java.util.UUID;
 public class ResponseGetAllDiaryDTO {
     UUID diaryId;
     LocalDateTime createdAt;
+    String detailDiary;
     ItemInfoDTO itemInfo;
 }

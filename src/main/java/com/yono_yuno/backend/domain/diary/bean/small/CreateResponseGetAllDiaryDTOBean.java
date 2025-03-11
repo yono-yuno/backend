@@ -25,6 +25,7 @@ public class CreateResponseGetAllDiaryDTOBean {
         return ResponseGetAllDiaryDTO.builder()
                 .diaryId(diary.getDiaryId())
                 .createdAt(diary.getCreatedAt())
+                .detailDiary(diary.getDetailDiary())
                 .itemInfo(itemInfoDTO)
                 .build();
     }
