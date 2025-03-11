@@ -27,14 +27,30 @@ public class CategoryMatching {
 
             categoryPrice.put(category, categoryPrice.getOrDefault(category, 0) + price);
         }
-
-        return categoryPrice.entrySet()
+        //카테고리별 합산 금액 정렬
+        Map<String, Integer> sortedCategoryPrice= categoryPrice.entrySet()
                 .stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue())) // 금액 내림차순 정렬
                 .collect(
                         LinkedHashMap::new,
                         (categoryPriceSort, entry) -> categoryPriceSort.put(entry.getKey(), entry.getValue()),
                         Map::putAll
-                );  
+                );
+
+        Map<String, Integer> top4 = new LinkedHashMap<>();
+        int remainPrice = 0;
+        int count = 0;
+
+        for (Map.Entry<String, Integer> entity : sortedCategoryPrice.entrySet()) {
+            if (count < 4) {
+                top4.put(entity.getKey(), entity.getValue());
+            } else {
+                remainPrice += entity.getValue();
+            }
+            count++;
+        }
+        top4.put("그 외", remainPrice);
+
+        return top4;
     }
 }
