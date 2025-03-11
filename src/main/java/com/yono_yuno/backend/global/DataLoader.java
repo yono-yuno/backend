@@ -116,7 +116,7 @@ public class DataLoader implements CommandLineRunner {
                 .itemName("미나티 드리핑백 루즈 숄더 빅사이즈 데일리 보부상가방 호보백 E20")
                 .price(20500)
                 .discount(4)
-                .itemStars(4.0)
+                .itemStars(4.3)
                 .reviewNum(9175)
                 .category("패션잡화")
                 .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/6147351202/B.jpg?178000000")
@@ -162,7 +162,7 @@ public class DataLoader implements CommandLineRunner {
                 .itemName("르젠 대용량 가열식 가습기 LZHD-900Y")
                 .price(10900)
                 .discount(5)
-                .itemStars(5.0)
+                .itemStars(4.8)
                 .reviewNum(213)
                 .category("전자제품")
                 .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/5/6/9/5/0/3/nPTVa/6762569503_B.jpg")
@@ -200,6 +200,52 @@ public class DataLoader implements CommandLineRunner {
                 .build();
 
         itemRepositoryJPA.save(item9);
+
+        // 출산 · 육아
+        ItemEntity item10 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("하기스")
+                .itemName("하기스 물놀이팬티 5단계 공용 12입 1개 물놀이기저귀 아기방수기저귀")
+                .price(18500)
+                .discount(2)
+                .itemStars(4.9)
+                .reviewNum(51)
+                .category("출산 · 육아")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7389690747/B.png?589000000")
+                .contentImg("https://d1spxp74pmd23j.cloudfront.net/A00869393/cloud/29348.png")
+                .build();
+
+        itemRepositoryJPA.save(item10);
+
+        ItemEntity item11 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("헬로카봇")
+                .itemName("헬로카봇 제트 크루저")
+                .price(86000)
+                .discount(5)
+                .itemStars(5.0)
+                .reviewNum(1557)
+                .category("출산 · 육아")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5184793113/B.jpg?40000000")
+                .contentImg("https://ai.esmplus.com/asdflkjh0230/SONOGONG/carbot/carbot_JetCruiser.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item11);
+
+        ItemEntity item12 = ItemEntity.builder()
+                .itemId(UUID.randomUUID())
+                .brandName("셀러허브")
+                .itemName("[JHQRMYQK_4B]플리스 후리스 점퍼 키즈바람막이")
+                .price(54120)
+                .discount(5)
+                .itemStars(4.7)
+                .reviewNum(946)
+                .category("출산 · 육아")
+                .itemImg("https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8054061856/B.jpg?968341338")
+                .contentImg("https://store.img11.co.kr/11365421/05bf6000-d796-4c15-905c-1e63a523a3da_1697419238235.jpg")
+                .build();
+
+        itemRepositoryJPA.save(item12);
 
         // ---------------------------------------------------------------------
         // 고민 중인 상품 데이터
