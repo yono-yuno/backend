@@ -40,8 +40,8 @@ public class DiaryService {
         return updateDiaryBean.exec(requestUpdateDiaryDTO);
     }
 
-    public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId){
-        return getAllDiaryBean.exec(userId);
+    public List<ResponseGetAllDiaryDTO> getAllDiary(UUID userId,String category){
+        return getAllDiaryBean.exec(userId,category);
     }
 
     public ResponseGetStatisticDTO statistic(UUID userId){
