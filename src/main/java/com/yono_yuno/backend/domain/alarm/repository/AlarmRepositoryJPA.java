@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface AlarmRepositoryJPA extends JpaRepository<AlarmEntity, UUID> {
     List<AlarmEntity> findAllByUserIdAndIsCheckFalseOrderByCreatedAtDesc(UUID userId);
-    AlarmEntity findByUserIdAndCartIdAndAskCount(UUID userId, UUID cartId, AskCount askCount);
-    AlarmEntity findByUserIdAndDiaryId(UUID userId, UUID diaryId);
+    AlarmEntity findFirstByUserIdAndCartIdAndAskCount(UUID userId, UUID cartId, AskCount askCount);
+    AlarmEntity findFirstByUserIdAndDiaryId(UUID userId, UUID diaryId);
 }

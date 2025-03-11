@@ -20,10 +20,10 @@ public class GetAlarmEntityBean {
     }
 
     public AlarmEntity exec(UUID userId, UUID cartId, AskCount askCount) {
-        return alarmRepositoryJPA.findByUserIdAndCartIdAndAskCount(userId, cartId, askCount);
+        return alarmRepositoryJPA.findFirstByUserIdAndCartIdAndAskCount(userId, cartId, askCount);
     }
 
     public AlarmEntity exec(UUID userId, UUID diaryId) {
-        return alarmRepositoryJPA.findByUserIdAndDiaryId(userId, diaryId);
+        return alarmRepositoryJPA.findFirstByUserIdAndDiaryId(userId, diaryId);
     }
 }
