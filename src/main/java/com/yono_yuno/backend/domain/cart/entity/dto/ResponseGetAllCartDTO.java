@@ -17,7 +17,7 @@ import java.util.UUID;
 public class ResponseGetAllCartDTO {
     UUID cartId;
     UUID userId;
-    AskCount askCount;
+    int askCount;
     LocalDateTime createdAt;
     String extraTime;
     ItemInfoDTO itemInfo;

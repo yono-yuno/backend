@@ -2,6 +2,7 @@ package com.yono_yuno.backend.domain.cart.bean;
 
 import com.yono_yuno.backend.domain.cart.bean.small.CreateResponseGetAllCartDTOBean;
 import com.yono_yuno.backend.domain.cart.bean.small.GetAllCartEntityBean;
+import com.yono_yuno.backend.domain.cart.entity.AskCount;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseGetAllCartDTO;
 import com.yono_yuno.backend.domain.item.entity.dto.ResponseGetItemAllDTO;
@@ -33,7 +34,10 @@ public class GetAllCartBean {
         }
 
         List<CartEntity> cartList = getAllCartEntityBean.exec(userId);
-        List<ResponseGetAllCartDTO> cartSortList=cartList.stream().map(createResponseGetAllCartDTOBean::exec).toList();
+        List<ResponseGetAllCartDTO> cartSortList = cartList.stream()
+                .filter(cart -> cart.getAskCount() == AskCount.FIRST_THINK || cart.getAskCount() == AskCount.SECOND_THINK)  // askCount가 0 또는 1인 것만 필터링
+                .map(createResponseGetAllCartDTOBean::exec)
+                .toList();
 
         if (sort != null) {
             switch (sort) {

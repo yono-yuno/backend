@@ -28,7 +28,7 @@ public class CreateResponseGetAllCartDTOBean {
         return ResponseGetAllCartDTO.builder()
                 .cartId(cart.getCartId())
                 .userId(cart.getUserId())
-                .askCount(cart.getAskCount())
+                .askCount(cart.getAskCount().getValue())
                 .extraTime(extraTime)
                 .createdAt(cart.getCreatedAt())
                 .itemInfo(itemInfoDTO)
