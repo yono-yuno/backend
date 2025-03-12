@@ -25,7 +25,7 @@ public class UpdateDiaryBean {
     }
 
     public boolean exec(RequestUpdateDiaryDTO requestUpdateDiaryDTO) {
-        DiaryEntity diary = getDiaryEntityBean.exec(requestUpdateDiaryDTO.getDairyId());
+        DiaryEntity diary = getDiaryEntityBean.exec(requestUpdateDiaryDTO.getDiaryId());
         if (diary == null) {
             throw new CustomException(ErrorCode.DIARY_NOT_FOUND);
         }

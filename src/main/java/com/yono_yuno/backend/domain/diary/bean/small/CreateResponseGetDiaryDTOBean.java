@@ -28,6 +28,7 @@ public class CreateResponseGetDiaryDTOBean {
                 .consumerStars(diary.getConsumerStars())
                 .firstReview(diary.getFirstReview())
                 .detailDiary(diary.getDetailDiary())
+                .createdAt(diary.getCreatedAt())
                 .itemInfo(itemInfoDTO)
                 .build();
     }

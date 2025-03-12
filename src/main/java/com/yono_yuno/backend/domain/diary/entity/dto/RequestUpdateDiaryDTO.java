@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 public class RequestUpdateDiaryDTO {
-    UUID dairyId;
+    UUID diaryId;
     double consumerStars;
     String detailDiary;
 }
