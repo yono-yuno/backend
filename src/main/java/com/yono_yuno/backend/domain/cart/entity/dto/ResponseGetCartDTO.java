@@ -14,5 +14,5 @@ import lombok.NoArgsConstructor;
 
 public class ResponseGetCartDTO {
     ItemInfoDTO itemInfo;
-    AskCount askCount;
+    int askCount;
 }

@@ -24,7 +24,7 @@ public class CreateResponseGetCartDTOBean {
 
         return ResponseGetCartDTO.builder()
                 .itemInfo(itemInfoDTO)
-                .askCount(cartEntity.getAskCount())
+                .askCount(cartEntity.getAskCount().getValue())
                 .build();
     }
 }
