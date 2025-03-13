@@ -73,7 +73,7 @@ public class DiaryController {
     public ResponseEntity<Map<String,Object>> getAllDiary(@RequestParam("userId") UUID userId,@RequestParam(value = "category", required = false, defaultValue = "전체") String category) {
        List<ResponseGetAllDiaryDTO> responseDiaryList = diaryService.getAllDiary(userId,category);
 
-       boolean success = !responseDiaryList.isEmpty();
+       boolean success = responseDiaryList != null;
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("isSuccess", success);
         responseMap.put("message", success ? "일기 리스트 조회 성공" : "일기 리스트 조회 실패");
