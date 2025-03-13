@@ -1,6 +1,7 @@
 package com.yono_yuno.backend.domain.account.bean.small;
 
 import com.yono_yuno.backend.domain.account.entity.AccountEntity;
+import com.yono_yuno.backend.domain.account.entity.dto.RequestUpdateAccountDTO;
 import com.yono_yuno.backend.domain.account.repository.AccountRepositoryJPA;
 import org.springframework.stereotype.Component;
 
@@ -16,5 +17,9 @@ public class GetAccountEntityBean {
 
     public AccountEntity exec(UUID userId) {
         return accountRepositoryJPA.findByUserId(userId);
+    }
+
+    public AccountEntity exec(RequestUpdateAccountDTO requestUpdateAccountDTO) {
+        return accountRepositoryJPA.findById(requestUpdateAccountDTO.getAccountId()).orElse(null);
     }
 }

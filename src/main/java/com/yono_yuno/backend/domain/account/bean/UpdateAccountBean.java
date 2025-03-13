@@ -17,24 +17,25 @@ public class UpdateAccountBean {
     private final GetAccountEntityBean getAccountEntityBean;
     private final UpdateAccountEntityBean updateAccountEntityBean;
     private final SaveAccountEntityBean saveAccountEntityBean;
+
     public UpdateAccountBean(GetAccountEntityBean getAccountEntityBean,UpdateAccountEntityBean updateAccountEntityBean,SaveAccountEntityBean saveAccountEntityBean) {
-        this.getAccountEntityBean=getAccountEntityBean;
-        this.updateAccountEntityBean=updateAccountEntityBean;
-        this.saveAccountEntityBean=saveAccountEntityBean;
+        this.getAccountEntityBean = getAccountEntityBean;
+        this.updateAccountEntityBean = updateAccountEntityBean;
+        this.saveAccountEntityBean = saveAccountEntityBean;
     }
 
-    public boolean exec(RequestUpdateAccountDTO requestUpdateAccountDTO){
-        AccountEntity account=getAccountEntityBean.exec(requestUpdateAccountDTO.getAccountId());
-        if(account ==null){
-            throw  new CustomException(ErrorCode.ACCOUNT_NOT_FOUND);
+    public boolean exec(RequestUpdateAccountDTO requestUpdateAccountDTO) {
+        AccountEntity account = getAccountEntityBean.exec(requestUpdateAccountDTO);
+        if (account == null) {
+            throw new CustomException(ErrorCode.ACCOUNT_NOT_FOUND);
         }
-        AccountEntity accountupdate=updateAccountEntityBean.exec(account,requestUpdateAccountDTO.getBalance());
+        AccountEntity updateAccount = updateAccountEntityBean.exec(account, requestUpdateAccountDTO.getBalance());
 
-        if(accountupdate == null){
+        if (updateAccount == null) {
             return false;
         }
-        saveAccountEntityBean.exec(accountupdate);
+
+        saveAccountEntityBean.exec(updateAccount);
         return true;
     }
-
 }
