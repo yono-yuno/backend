@@ -1,8 +1,6 @@
 package com.yono_yuno.backend.domain.diary.bean.matching;
 
 import com.yono_yuno.backend.domain.diary.entity.dto.statistic.LineGraphData;
-import com.yono_yuno.backend.global.error.CustomException;
-import com.yono_yuno.backend.global.error.ErrorCode;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

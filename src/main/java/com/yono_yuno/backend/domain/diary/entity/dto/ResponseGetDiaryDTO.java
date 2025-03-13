@@ -4,7 +4,6 @@ import com.yono_yuno.backend.domain.item.entity.dto.ItemInfoDTO;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

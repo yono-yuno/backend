@@ -1,6 +1,5 @@
 package com.yono_yuno.backend.domain.cart.entity.dto;
 
-import com.yono_yuno.backend.domain.cart.entity.AskCount;
 import com.yono_yuno.backend.domain.item.entity.dto.ItemInfoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

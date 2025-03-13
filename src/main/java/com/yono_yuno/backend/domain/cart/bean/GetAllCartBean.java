@@ -5,7 +5,6 @@ import com.yono_yuno.backend.domain.cart.bean.small.GetAllCartEntityBean;
 import com.yono_yuno.backend.domain.cart.entity.AskCount;
 import com.yono_yuno.backend.domain.cart.entity.CartEntity;
 import com.yono_yuno.backend.domain.cart.entity.dto.ResponseGetAllCartDTO;
-import com.yono_yuno.backend.domain.item.entity.dto.ResponseGetItemAllDTO;
 import com.yono_yuno.backend.domain.user.bean.small.GetUserEntityBean;
 import com.yono_yuno.backend.domain.user.entity.UserEntity;
 import com.yono_yuno.backend.global.error.CustomException;

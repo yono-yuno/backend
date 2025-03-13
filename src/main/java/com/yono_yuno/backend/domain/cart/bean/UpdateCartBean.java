@@ -9,7 +9,6 @@ import com.yono_yuno.backend.global.error.CustomException;
 import com.yono_yuno.backend.global.error.ErrorCode;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 
 @Component
 public class UpdateCartBean {
