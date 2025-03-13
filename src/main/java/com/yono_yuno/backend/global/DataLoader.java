@@ -575,6 +575,7 @@ public class DataLoader implements CommandLineRunner {
                 .cartId(UUID.randomUUID())
                 .itemId(item4.getItemId())
                 .askCount(AskCount.FIRST_THINK)
+                .userId(user.getUserId())
                 .build();
 
         cartRepositoryJPA.save(cart1);
