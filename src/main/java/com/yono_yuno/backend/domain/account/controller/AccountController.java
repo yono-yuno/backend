@@ -1,7 +1,9 @@
 package com.yono_yuno.backend.domain.account.controller;
 
+import com.yono_yuno.backend.domain.account.entity.dto.RequestUpdateAccountDTO;
 import com.yono_yuno.backend.domain.account.entity.dto.ResponseGetAccountDTO;
 import com.yono_yuno.backend.domain.account.service.AccountService;
+import com.yono_yuno.backend.domain.cart.entity.dto.RequestUpdateCartDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -37,4 +39,17 @@ public class AccountController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
+
+    @Operation(summary = "계좌 잔액 업데이트", description = "계좌 잔액을 업데이트 합니다.")
+    @PutMapping
+    public ResponseEntity<Map<String, Object>> updateBalance(@RequestBody RequestUpdateAccountDTO requestUpdateAccountDTO) {
+        boolean success= accountService.updateBalance(requestUpdateAccountDTO);
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", success);
+        responseMap.put("message", success ? "계좌 잔액 업데이트 성공" : "계좌 잔액 업데이트 실패");
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
+
 }
